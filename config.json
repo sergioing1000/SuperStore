@@ -1,0 +1,14 @@
+{
+    "app_name": "XVBA",
+    "description": "",
+    "author": "Sergio Cruz",
+    "email": "sergioing@yahoo.com",
+    "create_ate": "Wed May 01 2024 07:04:09 GMT-0500 (Colombia Standard Time)",
+    "excel_file": "SalesSuperstoreSC.xlsm",
+    "vba_folder": "vba-files",
+    "ribbon_file": "customUI14",
+    "ribbon_folder": "ribbons",
+    "logs": "on",
+    "xvba_packages": {},
+    "xvba_dev_packages": {}
+}
