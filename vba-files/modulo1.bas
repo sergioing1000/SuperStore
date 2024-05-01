@@ -1,10 +1,5 @@
 Attribute VB_Name = "modulo1"
 
-Sub MacroN_All()
-    Call Macro00_NewFile
-    Call Macro01_Headers
-End Sub
-
 Sub Macro00_NewFile()
 
     'This macro creates a new empty Excel file
