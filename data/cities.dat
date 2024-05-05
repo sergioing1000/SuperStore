@@ -1,0 +1,670 @@
+Order
+City
+State
+ST
+Latitude
+Logitude
+ZIP CODE
+Country
+Region
+Sub - Region Number
+1
+Birmingham
+Alabama
+AL
+33.5186° N
+86.8104° W
+35203
+US
+South
+4
+2
+Montgomery
+Alabama
+AL
+32.3792° N
+86.3077° W
+36104
+US
+South
+4
+3
+Anchorage
+Alaska
+AK
+61.2181° N
+149.9003° W
+99513
+US
+West
+10
+4
+Tucson
+Arizona
+AZ
+32.2226° N
+110.9747° W
+85701
+US
+West
+9
+5
+Phoenix
+Arizona
+AZ
+33.4484° N
+112.0740° W
+85003
+US
+West
+9
+6
+Little Rock
+Arkansas
+AR
+34.7465° N
+92.2896° W
+72201
+US
+South
+6
+7
+San Francisco
+California
+CA
+37.7749° N
+122.4194° W
+94102
+US
+West
+9
+8
+Los Angeles
+California
+CA
+34.0522° N
+118.2437° W
+90013
+US
+West
+9
+9
+San Diego
+California
+CA
+32.7157° N
+117.1611° W
+92101
+US
+West
+9
+10
+Denver
+Colorado
+CO
+39.7392° N
+104.9903° W
+80261
+US
+Central
+8
+11
+Hartford
+Connecticut
+CT
+41.7658° N
+72.6734° W
+06161
+US
+East
+1
+12
+Wilmington
+Delaware
+DE
+34.2104° N
+77.8868° W
+28403
+US
+East
+3
+13
+Miami
+Florida
+FL
+25.7617° N
+80.1918° W
+33131
+US
+South
+4
+14
+Atlanta
+Georgia
+GA
+33.7490° N
+84.3880° W
+30335
+US
+South
+4
+15
+Columbus
+Georgia
+GA
+39.9612° N
+82.9988° W
+43215
+US
+South
+4
+16
+Boise
+Idaho
+ID
+43.6150° N
+116.2023° W
+83724
+US
+West
+10
+17
+Chicago
+Illinois
+IL
+41.8781° N
+87.6298° W
+60604
+US
+Central
+5
+18
+Indianapolis
+Indiana
+IN
+39.7684° N
+86.1581° W
+46207
+US
+Central
+5
+19
+Des Moines
+Iowa
+IA
+41.5868° N
+93.6250° W
+50392
+US
+Central
+7
+20
+Cedar Rapids
+Iowa
+IA
+41.9779° N
+91.6656° W
+52401
+US
+Central
+7
+21
+Topeka
+Kansas
+KS
+39.0473° N
+95.6752° W
+66612
+US
+Central
+7
+22
+Louisville
+Kentucky
+KY
+38.2527° N
+85.7585° W
+40202
+US
+South
+4
+23
+Lexington
+Kentucky
+KY
+38.0406° N
+84.5037° W
+40507
+US
+South
+4
+24
+New Orleans
+Louisiana
+LA
+29.9511° N
+90.0715° W
+70163
+US
+South
+6
+25
+Alexandria
+Louisiana
+LA
+31.3113° N
+92.4451° W
+71301
+US
+South
+6
+26
+Augusta
+Maine
+ME
+33.4735° N
+82.0105° W
+30904
+US
+East
+1
+27
+Baltimore
+Maryland
+MD
+39.2904° N
+76.6122° W
+21201
+US
+East
+3
+28
+Frederick
+Maryland
+MD
+39.4143° N
+77.4105° W
+21701
+US
+East
+3
+29
+Boston
+Massachusetts
+MA
+42.3601° N
+71.0589° W
+02203
+US
+East
+1
+30
+Worcester
+Massachusetts
+MA
+42.2626° N
+71.8023° W
+01608
+US
+East
+1
+31
+Detroit
+Michigan
+MI
+42.3314° N
+83.0458° W
+48226
+US
+Central
+5
+32
+Minneapolis
+Minnesota
+MN
+44.9778° N
+93.2650° W
+55401
+US
+Central
+5
+33
+Jackson
+Mississippi
+MS
+32.2988° N
+90.1848° W
+39201
+US
+South
+4
+34
+Kansas City
+Missouri
+MO
+39.0997° N
+94.5786° W
+64106
+US
+Central
+7
+35
+St. Louis
+Missouri
+MO
+38.6270° N
+90.1994° W
+63103
+US
+Central
+7
+36
+Billings
+Montana
+MT
+45.7833° N
+108.5007° W
+59101
+US
+Central
+8
+37
+Bellevue 
+Nebraska
+NE
+41.1544° N
+95.9146° W
+68005
+US
+Central
+7
+38
+Carson City
+Nevada
+NV
+39.1638° N
+119.7674° W
+89701
+US
+West
+9
+39
+Las Vegas
+Nevada
+NV
+36.1699° N
+115.1398° W
+89101
+US
+West
+9
+40
+Reno
+Nevada
+NV
+39.5296° N
+119.8138° W
+89501
+US
+West
+9
+41
+Concord
+New Hampshire
+NH
+43.2081° N
+71.5376° W
+03301
+US
+East
+1
+42
+Atlantic City
+New Jersey
+NJ
+39.3643° N
+74.4229° W
+08401
+US
+East
+2
+43
+Albuquerque
+New Mexico
+NM
+35.0844° N
+106.6504° W
+87102
+US
+South
+6
+44
+New York City
+New York
+NY
+40.7128° N
+74.0060° W
+10007
+US
+East
+2
+45
+Buffalo
+New York
+NY
+42.8864° N
+78.8784° W
+14202
+US
+East
+2
+46
+Charlotte
+North Carolina
+NC
+35.2271° N
+80.8431° W
+28280
+US
+South
+4
+47
+Raleigh
+North Carolina
+NC
+35.7796° N
+78.6382° W
+27601
+US
+South
+4
+48
+Columbus
+Ohio
+OH
+39.9612° N
+82.9988° W
+43215
+US
+Central
+5
+49
+Oklahoma City
+Oklahoma
+OK
+35.4676° N
+97.5164° W
+73102
+US
+South
+6
+50
+Tulsa
+Oklahoma
+OK
+36.1540° N
+95.9928° W
+74103
+US
+South
+6
+51
+Portland
+Oregon
+OR
+45.5051° N
+122.6750° W
+97201
+US
+West
+10
+52
+Philadelphia
+Pennsylvania
+PA
+39.9526° N
+75.1652° W
+19107
+US
+East
+3
+53
+Providence
+Rhode Island
+RI
+41.8240° N
+71.4128° W
+02903
+US
+East
+1
+54
+Charleston
+South Carolina
+SC
+32.7765° N
+79.9311° W
+29401
+US
+South
+4
+55
+Sioux Falls
+South Dakota
+SD
+43.5473° N
+96.7283° W
+57104
+US
+Central
+8
+56
+Nashville
+Tennessee
+TN
+36.1627° N
+86.7816° W
+37219
+US
+South
+4
+57
+Houston
+Texas
+TX
+29.7604° N
+95.3698° W
+77002
+US
+South
+6
+58
+San Antonio
+Texas
+TX
+29.4241° N
+98.4936° W
+78205
+US
+South
+6
+59
+Dallas
+Texas
+TX
+32.7767° N
+96.7970° W
+75201
+US
+South
+6
+60
+Salt Lake City
+Utah
+UT
+40.7608° N
+111.8910° W
+84111
+US
+Central
+8
+61
+Burlington
+Vermont
+VT
+44.4759° N
+73.2121° W
+05401
+US
+East
+1
+62
+Virginia Beach
+Virginia
+VA
+36.8529° N
+75.9780° W
+23451
+US
+East
+3
+63
+Seattle
+Washington
+WA
+47.6062° N
+122.3321° W
+98164
+US
+West
+10
+64
+Charleston
+West Virginia
+WV
+38.3498° N
+81.6326° W
+25301
+US
+East
+3
+65
+Milwaukee
+Wisconsin
+WI
+43.0389° N
+87.9065° W
+53202
+US
+Central
+5
+66
+Laramie
+Wyoming
+WY
+41.3114° N
+105.5911° W
+82070
+US
+Central
+8

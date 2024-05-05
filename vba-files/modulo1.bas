@@ -15,21 +15,26 @@ Sub Macro01_Headers()
     'This macro Inlcude headers in the "Sales SuperStore" sheet
 
     Dim i as Integer
-    Dim My_range As Range
-    Dim header() As String
-    
-    headers = Array("Category", "Customer ", "Order Date", "Order ID", "Product Name", "Unit Price", "Segment", "Ship Date", "Ship Mode", "Country", "Region", "State", "City order", "City", "Postal Code", "Sub-Category", "Maesure Names", "Discount", "Profit", "Quantity", "Total Price", "Latitude", "Longitude", "Number of records", "Sub-Region")
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    Set My_range = Range("A1:Y1")
+    Dim headersRange as Range
 
-    i=0
-    for each cell in My_range
-        cell.value= headers (i)
-        i=i +1
+    path = "\data\headers.dat"
+
+    modulo2.ReadFile path, ArrayFile, numberOfLines
+
+    i = CInt(numberOfLines)
+
+    Set headersRange = Range("A1").Resize( , numberOfLines)
+
+    i = 0
+    for each cell in headersRange
+        cell.Value = ArrayFile(i)
+        i = i + 1
     next cell
-    
-    My_range.Font.Bold = True
-        
+
 End Sub
 
 Sub Macro02_OrdersWithRANDQty()
@@ -442,7 +447,6 @@ End Sub
 
 Sub Macro03_InsertCitiesSheet()
 
-    
     Dim ws As Worksheet
     Dim i As Integer
     Dim Arreglo(0, 670) As String
@@ -6845,6 +6849,14 @@ Sub MacroN_menos_1_Fill_LastNames()
     ActiveWindow.FreezePanes = True
     
 End Sub
+
+Sub MacroN_All_TEMP()
+
+    Call Macro00_NewFile
+    Call Macro01_Headers
+    Call Macro03_InsertCitiesSheet
+
+end Sub
 
 Sub MacroN_All()
 
