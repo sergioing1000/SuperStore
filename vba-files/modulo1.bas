@@ -519,38 +519,40 @@ Sub Macro04_InsertSheets()
 
     modulo2.ReadFile path, ArrayFile, numberOfLines
 
-    msgBox "el numero de lineas del archivo es:" & numberOfLines
-
-    Debug.Print "Value of numberOfLines is: " & numberOfLines
-
-    for i=1 to numberOfLines
+    for i = 0 to numberOfLines-1
 
         Sheets.Add After:=ActiveSheet
-        ActiveSheet.Name = ArrayFile (0)
+        ActiveSheet.Name = ArrayFile (i)
 
     next i
 
 End Sub
 
-Sub Macro05_Fill_Category()
+Sub Macro05_Fill_Categories()
 
-    Sheets("Category").Select
-    
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-    
-    Range("B1").Value = "Category"
-    Range("B1").Font.Bold = True
-    
-    Range("A2").Value = "1"
-    Range("B2").Value = "Furniture"
-    Range("A3").Value = "2"
-    Range("B3").Value = "Office Supplies"
-    Range("A4").Value = "3"
-    Range("B4").Value = "Technology"
-    Range("A5").Value = "4"
-    Range("B5").Value = "Beauty"
-    
+    Sheets("Categories").Select
+
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
+    Dim Myrange as Range
+    Dim i as Integer
+
+    path = "\data\categories.dat"
+
+    modulo2.ReadFile path, ArrayFile, numberOfLines
+
+    Set Myrange = Range("A1:B5")
+
+    i=0
+
+
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
+
+    Range("A1:B1").Font.Bold = True
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
     
@@ -570,7 +572,7 @@ Sub Macro06_Fill_Sub_Category()
     
     Set Myrange = Range("A2:B17")
     
-    Sheets("Sub-Category").Select
+    Sheets("Sub-Categories").Select
     
     Arreglo(0, 0) = "Accesories"
     Arreglo(0, 1) = "Appliances"
@@ -6070,6 +6072,7 @@ Sub MacroN_All_TEMP()
     Call Macro01_Headers
     Call Macro03_InsertCitiesSheet
     Call Macro04_InsertSheets
+    Call Macro05_Fill_Categories
 
 end Sub
 
