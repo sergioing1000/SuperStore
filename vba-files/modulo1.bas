@@ -546,7 +546,6 @@ Sub Macro05_Fill_Categories()
 
     i=0
 
-
     for each cell in Myrange
         cell.value = ArrayFile (i)
         i=i+1
@@ -562,66 +561,29 @@ Sub Macro05_Fill_Categories()
 End Sub
 Sub Macro06_Fill_Sub_Category()
 
-    
+    Dim path As String
     Dim i As Integer
-    Dim j As Integer
-    Dim Arreglo(0, 15) As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
         
-    Dim Cell As Range
     Dim Myrange As Range
     
-    Set Myrange = Range("A2:B17")
-    
     Sheets("Sub-Categories").Select
+
+    path = "\data\sub_categories.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
     
-    Arreglo(0, 0) = "Accesories"
-    Arreglo(0, 1) = "Appliances"
-    Arreglo(0, 2) = "Art"
-    Arreglo(0, 3) = "Binders"
-    Arreglo(0, 4) = "Bookcases"
-    Arreglo(0, 5) = "Chairs"
-    Arreglo(0, 6) = "Copiers"
-    Arreglo(0, 7) = "Envelopes"
-    Arreglo(0, 8) = "Fasteners"
-    Arreglo(0, 9) = "Furnishings"
-    Arreglo(0, 10) = "Labels"
-    Arreglo(0, 11) = "Gym Machines"
-    Arreglo(0, 12) = "Papers"
-    Arreglo(0, 13) = "Storage"
-    Arreglo(0, 14) = "Suppliers"
-    Arreglo(0, 15) = "Tables"
+    Set Myrange = Range("A1:B17")
+
+    i=0
+
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
     
-    
-    Set Myrange = Range("A2:B17")
-    
-    i = 0
+    Range("A1:B1").Font.Bold = True
 
-    j = 0
-
-    For Each Cell In Myrange
-
-        If j Mod 2 = 0 Then
-
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
-
-    
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-    
-    Range("B1").Value = "Sub-Category"
-    Range("B1").Font.Bold = True
-    
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
     
@@ -630,13 +592,12 @@ Sub Macro06_Fill_Sub_Category()
         
 End Sub
 
-
-Sub Macro08_Fill_Accesories()
+Sub Macro07_Fill_Accesories()
     
     Sheets("Accesories").Select
 
     Dim Myrange As Range
-    Dim Cell As Range
+    ' Dim Cell As Range
     Dim i As Long
     Dim j As Long
 
@@ -656,9 +617,11 @@ Sub Macro08_Fill_Accesories()
     Arreglo(0, 11) = "Tools & Accessories"
     Arreglo(0, 12) = "Shave & Hair Removal"
     Arreglo(0, 13) = "Personal Care"
-  
+
+    Randomize ' Initialize random-number generator.
   
     Set Myrange = Range("A2:B15")
+
     i = 0
 
     j = 0
@@ -699,9 +662,7 @@ Sub Macro08_Fill_Accesories()
     Columns("C:C").NumberFormat = "#,##0.00"
     
     '/////////////////PRICES/////////////////
-    
-    
-
+   
     Range("A1").Value = "Order"
     Range("A1").Font.Bold = True
 
@@ -710,7 +671,6 @@ Sub Macro08_Fill_Accesories()
     
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
-
 
     Columns("C:C").NumberFormat = "#,##0.00"
 
@@ -6073,6 +6033,8 @@ Sub MacroN_All_TEMP()
     Call Macro03_InsertCitiesSheet
     Call Macro04_InsertSheets
     Call Macro05_Fill_Categories
+    Call Macro06_Fill_Sub_Category
+    Call Macro07_Fill_Accesories
 
 end Sub
 
@@ -6086,7 +6048,7 @@ Sub MacroN_All()
     Call Macro05_Fill_Category
     Call Macro06_Fill_Sub_Category
            
-    Call Macro08_Fill_Accesories
+    Call Macro07_Fill_Accesories
     Call Macro09_Fill_Appliances
     Call Macro10_Fill_Binders
     Call Macro11_Fill_Art
