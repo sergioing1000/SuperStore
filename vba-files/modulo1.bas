@@ -603,7 +603,7 @@ Sub Macro07_Fill_Accesories()
     Dim ArrayFile() As String
     Dim numberOfLines As Long
 
-    path = "\data\sub_categories.dat"
+    path = "\data\accesories.dat"
     modulo2.ReadFile path, ArrayFile, numberOfLines
 
     Randomize ' Initialize random-number generator.
@@ -1247,71 +1247,29 @@ Sub Macro18_Fill_Gym_Machines()
 
 End Sub
 
-Sub Macro20_Fill_Papers()
+Sub Macro19_Fill_Papers()
 
 
     Sheets("Papers").Select
 
-    Dim Myrange As Range
-    Dim Cell As Range
+    Dim Myrange As Range    
     Dim i As Double
-    Dim j As Double
-
-    Dim Arreglo(0, 29) As String
-
     
-    Arreglo(0, 0) = "Repro paper"
-    Arreglo(0, 1) = "Coated paper"
-    Arreglo(0, 2) = "Tissue paper "
-    Arreglo(0, 3) = "Newsprint"
-    Arreglo(0, 4) = "Cardboard"
-    Arreglo(0, 5) = "Paperboard"
-    Arreglo(0, 6) = "Fine art paper"
-    Arreglo(0, 7) = "Bank paper"
-    Arreglo(0, 8) = "Banana paper"
-    Arreglo(0, 9) = "Bond paper"
-    Arreglo(0, 10) = "Book paper"
-    Arreglo(0, 11) = "Soft Coated paper"
-    Arreglo(0, 12) = "Construction paper"
-    Arreglo(0, 13) = "Sugar paper"
-    Arreglo(0, 14) = "Cotton paper"
-    Arreglo(0, 15) = "Fish paper "
-    Arreglo(0, 16) = "Inkjet paper"
-    Arreglo(0, 17) = "Kraft paper"
-    Arreglo(0, 18) = "Laid paper"
-    Arreglo(0, 19) = "Leather paper"
-    Arreglo(0, 20) = "Mummy paper"
-    Arreglo(0, 21) = "Oak tag paper"
-    Arreglo(0, 22) = "Sandpaper"
-    Arreglo(0, 23) = "Tyvek paper"
-    Arreglo(0, 24) = "Wallpaper"
-    Arreglo(0, 25) = "Washi paper"
-    Arreglo(0, 26) = "Waterproof paper"
-    Arreglo(0, 27) = "Wax paper"
-    Arreglo(0, 28) = "Wove paper"
-    Arreglo(0, 29) = "Xuan paper"
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    Set Myrange = Range("A2:B31")
-    i = 0
+    path = "\data\papers.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
-    j = 0
+    Set Myrange = Range("A1:B31")
 
-    For Each Cell In Myrange
+    i=0
 
-        If j Mod 2 = 0 Then
-
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
     
     '/////////////////PRICES/////////////////
     
@@ -1333,12 +1291,7 @@ Sub Macro20_Fill_Papers()
     
     '/////////////////PRICES/////////////////
 
-
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Papers"
-    Range("B1").Font.Bold = True
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -1347,57 +1300,29 @@ Sub Macro20_Fill_Papers()
     ActiveWindow.FreezePanes = True
 
 End Sub
-Sub Macro21_Fill_Storage()
+Sub Macro20_Fill_Storage()
 
 
     Sheets("Storage").Select
 
     Dim Myrange As Range
-    Dim Cell As Range
     Dim i As Double
-    Dim j As Double
 
-    Dim Arreglo(0, 16) As String
-    
-    Arreglo(0, 0) = "Decorative Bins"
-    Arreglo(0, 1) = "Baskets "
-    Arreglo(0, 2) = "Drawer Organizers"
-    Arreglo(0, 3) = "Plastic Bins "
-    Arreglo(0, 4) = "Plastic Baskets"
-    Arreglo(0, 5) = "Drawers"
-    Arreglo(0, 6) = "Like-it System "
-    Arreglo(0, 7) = "3 Sprouts"
-    Arreglo(0, 8) = "Garage Storage Totes"
-    Arreglo(0, 9) = "Storage Bags"
-    Arreglo(0, 10) = "Storage Totes"
-    Arreglo(0, 11) = "Cases of Storage"
-    Arreglo(0, 12) = "The Home Edit Exclusive Collection"
-    Arreglo(0, 13) = "Lego Storage"
-    Arreglo(0, 14) = "Storage Benches & Seats"
-    Arreglo(0, 15) = "SmartStore"
-    Arreglo(0, 16) = "Trunks "
-    
-    Set Myrange = Range("A2:B18")
-    i = 0
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    j = 0
+    path = "\data\storages.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
-    For Each Cell In Myrange
+    Set Myrange = Range("A1:B18")
 
-        If j Mod 2 = 0 Then
+    i=0
 
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next    
     
      '/////////////////PRICES/////////////////
     
@@ -1419,11 +1344,7 @@ Sub Macro21_Fill_Storage()
     
     '/////////////////PRICES/////////////////
 
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Storage"
-    Range("B1").Font.Bold = True
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -1433,7 +1354,7 @@ Sub Macro21_Fill_Storage()
 
 
 End Sub
-Sub Macro22_Fill_Supplies()
+Sub Macro21_Fill_Supplies()
 
 
     Dim Myrange As Range
@@ -1484,87 +1405,31 @@ Sub Macro22_Fill_Supplies()
         
 End Sub
 
-Sub Macro23_Fill_Tables()
+Sub Macro22_Fill_Tables()
 
 
     Sheets("Tables").Select
 
     Dim Myrange As Range
-    Dim Cell As Range
     Dim i As Double
-    Dim j As Double
+    
+    Set Myrange = Range("A1:B48")
 
-    Dim Arreglo(0, 46) As String
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    Arreglo(0, 0) = "Coffee Table"
-    Arreglo(0, 1) = "Accent Table"
-    Arreglo(0, 2) = "Console Table"
-    Arreglo(0, 3) = "Side Table"
-    Arreglo(0, 4) = "C-table"
-    Arreglo(0, 5) = "Drink Table"
-    Arreglo(0, 6) = "End Table"
-    Arreglo(0, 7) = "Bunching Table"
-    Arreglo(0, 8) = "Stacking Table"
-    Arreglo(0, 9) = "Nesting table"
-    Arreglo(0, 10) = "Drum Table"
-    Arreglo(0, 11) = "Foyer Tables"
-    Arreglo(0, 12) = "Ottoman Tables"
-    Arreglo(0, 13) = "Dining Table"
-    Arreglo(0, 14) = "Kitchen Table"
-    Arreglo(0, 15) = "Bedside Table"
-    Arreglo(0, 16) = "Nightstand Table"
-    Arreglo(0, 17) = "Pub Table"
-    Arreglo(0, 18) = "Patio Table"
-    Arreglo(0, 19) = "Work Table"
-    Arreglo(0, 20) = "Conference Table"
-    Arreglo(0, 21) = "Computer Table"
-    Arreglo(0, 22) = "Game Tables - Pool Table"
-    Arreglo(0, 23) = "Game Tables - Ping Pong Table"
-    Arreglo(0, 24) = "Game Tables - Foosball Table"
-    Arreglo(0, 25) = "Game Tables - Card Table"
-    Arreglo(0, 26) = "Square or Rectangle Table "
-    Arreglo(0, 27) = "Polygon Table "
-    Arreglo(0, 28) = "Industrial Table"
-    Arreglo(0, 29) = "Farmhouse Table"
-    Arreglo(0, 30) = "Shabby Chic Table"
-    Arreglo(0, 31) = "Mid-Century Modern Table"
-    Arreglo(0, 32) = "Scandinavian Table"
-    Arreglo(0, 33) = "Antique Table"
-    Arreglo(0, 34) = "Custom Table"
-    Arreglo(0, 35) = "Big Box Self-Assembled Table"
-    Arreglo(0, 36) = "Furniture Store Table"
-    Arreglo(0, 37) = "DIY or Restoration Table"
-    Arreglo(0, 38) = "Pre-loved Table"
-    Arreglo(0, 39) = "Wood Veneer Table"
-    Arreglo(0, 40) = "Laminate Table"
-    Arreglo(0, 41) = "Marble Table"
-    Arreglo(0, 42) = "Solid Wood Table"
-    Arreglo(0, 43) = "Metal Table"
-    Arreglo(0, 44) = "Glass Table"
-    Arreglo(0, 45) = "Aesthetics Table"
-    Arreglo(0, 46) = "Functional Table"
+    path = "\data\tables.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
-    Set Myrange = Range("A2:B48")
-    i = 0
+    Set Myrange = Range("A1:B48")
 
-    j = 0
+    i=0
 
-    For Each Cell In Myrange
-
-        If j Mod 2 = 0 Then
-
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
     
     '/////////////////PRICES/////////////////
     
@@ -1586,12 +1451,7 @@ Sub Macro23_Fill_Tables()
     
     '/////////////////PRICES/////////////////
 
-
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Tables"
-    Range("B1").Font.Bold = True
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -1601,7 +1461,7 @@ Sub Macro23_Fill_Tables()
 
 End Sub
 
-Sub Macro24_Fill_Products()
+Sub Macro23_Fill_Products()
 
     Sheets("Products").Select
     
@@ -4938,6 +4798,12 @@ Sub MacroN_All_TEMP()
     Call Macro16_Fill_Furnishings
     Call Macro17_Fill_Labels
     Call Macro18_Fill_Gym_Machines
+    Call Macro19_Fill_Papers
+    Call Macro20_Fill_Storage
+    Call Macro21_Fill_Supplies
+    Call Macro22_Fill_Tables
+
+    Call Macro23_Fill_Products
 
 end Sub
 
@@ -4963,12 +4829,12 @@ Sub MacroN_All()
     Call Macro16_Fill_Furnishings
     Call Macro17_Fill_Labels
     Call Macro18_Fill_Gym_Machines
-    Call Macro20_Fill_Papers
-    Call Macro21_Fill_Storage
-    Call Macro22_Fill_Supplies
-    Call Macro23_Fill_Tables
+    Call Macro19_Fill_Papers
+    Call Macro20_Fill_Storage
+    Call Macro21_Fill_Supplies
+    Call Macro22_Fill_Tables
     
-    Call Macro24_Fill_Products
+    Call Macro23_Fill_Products
             
         Call MacroN_menos_2_Fill_Names
         Call MacroN_menos_1_Fill_LastNames
