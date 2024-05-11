@@ -933,156 +933,23 @@ Sub Macro13_Fill_Copiers()
     Sheets("Copiers").Select
 
     Dim Myrange As Range
-    Dim Cell As Range
     Dim i As Double
-    Dim j As Double
 
-    Dim Arreglo(0, 119) As String
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    Arreglo(0, 0) = "A. B. Dick Copier"
-    Arreglo(0, 1) = "Advanced Matrix Technology Copier"
-    Arreglo(0, 2) = "ALPS Copier"
-    Arreglo(0, 3) = "AMT Datasouth Copier"
-    Arreglo(0, 4) = "Avery Dennison Copier"
-    Arreglo(0, 5) = "Apple Copier"
-    Arreglo(0, 6) = "ASK Technology Copier"
-    Arreglo(0, 7) = "Axonix Copier"
-    Arreglo(0, 8) = "Bell-Mark Copier"
-    Arreglo(0, 9) = "Benson, Inc. Copier"
-    Arreglo(0, 10) = "Brother Copier"
-    Arreglo(0, 11) = "Bull Copier"
-    Arreglo(0, 12) = "Canon Copier"
-    Arreglo(0, 13) = "Centronics Copier"
-    Arreglo(0, 14) = "Checkpoint Meto Copier"
-    Arreglo(0, 15) = "Citizen Copier"
-    Arreglo(0, 16) = "Codimag Copier"
-    Arreglo(0, 17) = "Cognitive Copier"
-    Arreglo(0, 18) = "Compuprint Copier"
-    Arreglo(0, 19) = "Computer Peripherals Inc Copier"
-    Arreglo(0, 20) = "Comtec Copier"
-    Arreglo(0, 21) = "Compress UV Printers Copier"
-    Arreglo(0, 22) = "Copal Copier"
-    Arreglo(0, 23) = "Control Data Corporation Copier"
-    Arreglo(0, 24) = "DASCOM Copier"
-    Arreglo(0, 25) = "Datamax-O'Neil Copier"
-    Arreglo(0, 26) = "Dataproducts Copier"
-    Arreglo(0, 27) = "Datasouth Copier"
-    Arreglo(0, 28) = "Decision Data Copier"
-    Arreglo(0, 29) = "Delphax Technologies inc Copier"
-    Arreglo(0, 30) = "Diablo Copier"
-    Arreglo(0, 31) = "Digital Equipment Corporation Copier"
-    Arreglo(0, 32) = "Dell Copier"
-    Arreglo(0, 33) = "Eastman Kodak Copier"
-    Arreglo(0, 34) = "Eltron Copier"
-    Arreglo(0, 35) = "Epson Copier"
-    Arreglo(0, 36) = "Everex (Abaton div.) Copier"
-    Arreglo(0, 37) = "Facit Copier"
-    Arreglo(0, 38) = "Fargo Copier"
-    Arreglo(0, 39) = "Fujifilm Copier"
-    Arreglo(0, 40) = "Fujitsu Copier"
-    Arreglo(0, 41) = "Fuji Xerox Copier"
-    Arreglo(0, 42) = "GENICOM Copier"
-    Arreglo(0, 43) = "GCC Printers Copier"
-    Arreglo(0, 44) = "General Electric Copier"
-    Arreglo(0, 45) = "Hitachi Copier"
-    Arreglo(0, 46) = "Heidelberg Copier"
-    Arreglo(0, 47) = "Hewlett-Packard Copier"
-    Arreglo(0, 48) = "Imprint Digital Copier"
-    Arreglo(0, 49) = "IBM Copier"
-    Arreglo(0, 50) = "InfoPrint Copier"
-    Arreglo(0, 51) = "Juki Copier"
-    Arreglo(0, 52) = "Kentek Copier"
-    Arreglo(0, 53) = "Kodak Copier"
-    Arreglo(0, 54) = "Konica Copier"
-    Arreglo(0, 55) = "Konica Minolta Copier"
-    Arreglo(0, 56) = "Kyocera Mita Copier"
-    Arreglo(0, 57) = "Lake Erie Systems Copier"
-    Arreglo(0, 58) = "Lanier Copier"
-    Arreglo(0, 59) = "Lenovo Copier"
-    Arreglo(0, 60) = "Lexmark Copier"
-    Arreglo(0, 61) = "LiPi Data sys. Copier"
-    Arreglo(0, 62) = "Mannesmann Tally Copier"
-    Arreglo(0, 63) = "MapleJet Copier"
-    Arreglo(0, 64) = "Minolta Copier"
-    Arreglo(0, 65) = "Minolta-QMS Copier"
-    Arreglo(0, 66) = "Memorex Telex Copier"
-    Arreglo(0, 67) = "Microcom Corporation Copier"
-    Arreglo(0, 68) = "MTX Copier"
-    Arreglo(0, 69) = "Nakajima Copier"
-    Arreglo(0, 70) = "NEC Copier"
-    Arreglo(0, 71) = "Nidec Copal Copier"
-    Arreglo(0, 72) = "Nipson Copier"
-    Arreglo(0, 73) = "Océ Copier"
-    Arreglo(0, 74) = "Oki Data Copier"
-    Arreglo(0, 75) = "Olivetti Copier"
-    Arreglo(0, 76) = "Output Technology Copier"
-    Arreglo(0, 77) = "Office Automation Systems Inc (OASYS) Copier"
-    Arreglo(0, 78) = "Panasonic Copier"
-    Arreglo(0, 79) = "Pentax Copier"
-    Arreglo(0, 80) = "Printer System Corporation Copier"
-    Arreglo(0, 81) = "Printek Copier"
-    Arreglo(0, 82) = "Printer Systems International Copier"
-    Arreglo(0, 83) = "Printronix Copier"
-    Arreglo(0, 84) = "PSI Engineering Copier"
-    Arreglo(0, 85) = "Prototype & Production Systems, Inc Copier"
-    Arreglo(0, 86) = "QMS Copier"
-    Arreglo(0, 87) = "Qume Copier"
-    Arreglo(0, 88) = "Rank Xerox Copier"
-    Arreglo(0, 89) = "Ricoh Copier"
-    Arreglo(0, 90) = "Riso Kagaku Corporation Copier"
-    Arreglo(0, 91) = "RJS Copier"
-    Arreglo(0, 92) = "Samsung Copier"
-    Arreglo(0, 93) = "Sato Copier"
-    Arreglo(0, 94) = "Seiko Copier"
-    Arreglo(0, 95) = "Seiko Epson Copier"
-    Arreglo(0, 96) = "Sewoo Copier"
-    Arreglo(0, 97) = "Sharp Copier"
-    Arreglo(0, 98) = "Siemens Nixdorf Copier"
-    Arreglo(0, 99) = "Source Technologies Copier"
-    Arreglo(0, 100) = "Swecoin Copier"
-    Arreglo(0, 101) = "Syscan Copier"
-    Arreglo(0, 102) = "Star Copier"
-    Arreglo(0, 103) = "Star Micronics Copier"
-    Arreglo(0, 104) = "Tally Copier"
-    Arreglo(0, 105) = "TallyGenicom Copier"
-    Arreglo(0, 106) = "TEC Copier"
-    Arreglo(0, 107) = "Tektronix Copier"
-    Arreglo(0, 108) = "Teletype Copier"
-    Arreglo(0, 109) = "Texas Instruments Copier"
-    Arreglo(0, 110) = "Toshiba Copier"
-    Arreglo(0, 111) = "Trilog Copier"
-    Arreglo(0, 112) = "TVS Electronics Copier"
-    Arreglo(0, 113) = "UBIX Corp. Copier"
-    Arreglo(0, 114) = "Versatec Copier"
-    Arreglo(0, 115) = "Xeikon Copier"
-    Arreglo(0, 116) = "Xerox Copier"
-    Arreglo(0, 117) = "Xerox International Partners Copier"
-    Arreglo(0, 118) = "Wipro Technologies  Copier"
-    Arreglo(0, 119) = "Zebra Copier"
+    path = "\data\copiers.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
+    Set Myrange = Range("A1:B121")
 
-    
-    Set Myrange = Range("A2:B121")
-    i = 0
+    i=0
 
-    j = 0
-
-    For Each Cell In Myrange
-
-        If j Mod 2 = 0 Then
-
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
     
     '/////////////////PRICES/////////////////
     
@@ -1104,11 +971,7 @@ Sub Macro13_Fill_Copiers()
     
     '/////////////////PRICES/////////////////
 
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Copiers"
-    Range("B1").Font.Bold = True
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -1116,73 +979,30 @@ Sub Macro13_Fill_Copiers()
     Range("A2").Select
     ActiveWindow.FreezePanes = True
 
-   
-
 End Sub
-Sub Macro15_Fill_Envelopes()
+Sub Macro14_Fill_Envelopes()
 
 
     Sheets("Envelopes").Select
 
     Dim Myrange As Range
-    Dim Cell As Range
     Dim i As Double
-    Dim j As Double
 
-    Dim Arreglo(0, 29) As String
-    
-    Arreglo(0, 0) = "4 Baronial Envelope - 92 x 130 mm"
-    Arreglo(0, 1) = "5 1/2 Baronial Envelope - 111 x 146 mm"
-    Arreglo(0, 2) = "6 Baronial Envelope - 212 x 165 mm"
-    Arreglo(0, 3) = "Lee Envelope - 133 x 184 mm"
-    Arreglo(0, 4) = "A2 Envelope - 111 x 146 mm"
-    Arreglo(0, 5) = "A6 Envelope - 121 x 165 mm"
-    Arreglo(0, 6) = "A7 Envelope - 133 x 184 mm"
-    Arreglo(0, 7) = "A8 Envelope - 410 x 206 mm"
-    Arreglo(0, 8) = "A10 Envelope - 152 x 241 mm"
-    Arreglo(0, 9) = "Slimline Envelope - 98 x 225 mm"
-    Arreglo(0, 10) = "5 Square Envelope - 127 x 127 mm"
-    Arreglo(0, 11) = "5 1/2 Square Envelope - 140 x 140 mm"
-    Arreglo(0, 12) = "6 Square Envelope - 152 x 152 mm"
-    Arreglo(0, 13) = "6 1/2 Square Envelope - 165 x 165 mm"
-    Arreglo(0, 14) = "7 Square Envelope - 178 x 178 mm"
-    Arreglo(0, 15) = "7 1/2 Square Envelope - 190 x 190 mm"
-    Arreglo(0, 16) = "8 Square Envelope - 203 x 203 mm"
-    Arreglo(0, 17) = "8 1/2 Square Envelope - 216 x 216 mm"
-    Arreglo(0, 18) = "6.75 Envelope - 165 x 92 mm"
-    Arreglo(0, 19) = "Monarch Envelope - 190 x 98 mm"
-    Arreglo(0, 20) = "No. 9 Commercial Envelope - 225 x 98 mm"
-    Arreglo(0, 21) = "No. 10 Commercial Envelope - 241 x 105 mm"
-    Arreglo(0, 22) = "No. 10 Square Envelope - 241 x 105 mm"
-    Arreglo(0, 23) = "No. 10 Peel ? Seal Envelope - 241 x 105 mm"
-    Arreglo(0, 24) = "No. 10 Commercial (Standard Poly Window) Envelope - 241 x 105 mm"
-    Arreglo(0, 25) = "No. 10 Policy Envelope - 241 x 105 mm"
-    Arreglo(0, 26) = "No. 10 Commercial (Canadian Window) Envelope - 241 x 105 mm"
-    Arreglo(0, 27) = "DL Envelope - 220 x 110 mm"
-    Arreglo(0, 28) = "9 x 12 Envelope - 229 x 305 mm"
-    Arreglo(0, 29) = "10 x 13 Envelope - 254 x 330 mm"
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    Set Myrange = Range("A2:B31")
-    i = 0
+    path = "\data\envelopes.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
-    j = 0
+    Set Myrange = Range("A1:B31")
 
-    For Each Cell In Myrange
+    i=0
 
-        If j Mod 2 = 0 Then
-
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
     
     '/////////////////PRICES/////////////////
     
@@ -1203,19 +1023,14 @@ Sub Macro15_Fill_Envelopes()
     Columns("C:C").NumberFormat = "#,##0.00"
     
     '/////////////////PRICES/////////////////
-
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Envelopes"
-    Range("B1").Font.Bold = True
+    
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
 
     Range("A2").Select
     ActiveWindow.FreezePanes = True
-
 
 End Sub
 Sub Macro16_Fill_Fasteners()
@@ -5464,6 +5279,7 @@ Sub MacroN_All_TEMP()
     Call Macro11_Fill_Bookcases
     Call Macro12_Fill_Chairs
     Call Macro13_Fill_Copiers
+    Call Macro14_Fill_Envelopes
 
 end Sub
 
@@ -5484,7 +5300,7 @@ Sub MacroN_All()
     Call Macro11_Fill_Bookcases
     Call Macro12_Fill_Chairs
     Call Macro13_Fill_Copiers
-    Call Macro15_Fill_Envelopes
+    Call Macro14_Fill_Envelopes
     Call Macro16_Fill_Fasteners
     Call Macro17_Fill_Furnishings
     Call Macro18_Fill_Labels
