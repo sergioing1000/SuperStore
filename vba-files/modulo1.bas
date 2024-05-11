@@ -653,12 +653,11 @@ End Sub
 
 Sub Macro08_Fill_Appliances()
 
-
     Sheets("Appliances").Select
 
     Dim Myrange As Range
     Dim i As Double
-    Dim j As Double
+    ' Dim j As Double
 
 
     Dim path As String
@@ -708,54 +707,28 @@ Sub Macro08_Fill_Appliances()
     ActiveWindow.FreezePanes = True
 
 End Sub
-Sub Macro10_Fill_Binders()
-
+Sub Macro09_Fill_Binders()
 
     Sheets("Binders").Select
 
     Dim Myrange As Range
-    Dim Cell As Range
     Dim i As Double
-    Dim j As Double
 
-    Dim Arreglo(0, 10) As String
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
+    path = "\data\binders.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
+       
+    Set Myrange = Range("A1:B12")
 
+    i=0
 
-    Arreglo(0, 0) = "Hard cover binders"
-    Arreglo(0, 1) = "Soft cover binders"
-    Arreglo(0, 2) = "Decorative binders"
-    Arreglo(0, 3) = "School Binders"
-    Arreglo(0, 4) = "blue binder, "
-    Arreglo(0, 5) = "Pink binder "
-    Arreglo(0, 6) = "Colorful binders"
-    Arreglo(0, 7) = "Binders with arch mechanisms"
-    Arreglo(0, 8) = "3-ring binders "
-    Arreglo(0, 9) = "Presentation binder"
-    Arreglo(0, 10) = "Binder with zipper"
-    
-    Set Myrange = Range("A2:B12")
-    i = 0
-
-    j = 0
-
-    For Each Cell In Myrange
-
-        If j Mod 2 = 0 Then
-
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
-    
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
     
     '/////////////////PRICES/////////////////
     
@@ -776,13 +749,8 @@ Sub Macro10_Fill_Binders()
     Columns("C:C").NumberFormat = "#,##0.00"
     
     '/////////////////PRICES/////////////////
-    
 
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Binders"
-    Range("B1").Font.Bold = True
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -5857,7 +5825,7 @@ Sub MacroN_All_TEMP()
     Call Macro06_Fill_Sub_Category
     Call Macro07_Fill_Accesories
     Call Macro08_Fill_Appliances
-
+    Call Macro09_Fill_Binders
 end Sub
 
 Sub MacroN_All()
@@ -5872,7 +5840,7 @@ Sub MacroN_All()
            
     Call Macro07_Fill_Accesories
     Call Macro08_Fill_Appliances
-    Call Macro10_Fill_Binders
+    Call Macro09_Fill_Binders
     Call Macro11_Fill_Art
     Call Macro12_Fill_Bookcases
     Call Macro13_Fill_Chairs
