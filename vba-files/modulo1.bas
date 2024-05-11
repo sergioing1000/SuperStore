@@ -820,9 +820,7 @@ Sub Macro11_Fill_Bookcases()
     Sheets("Bookcases").Select
 
     Dim Myrange As Range
-    Dim Cell As Range
     Dim i As Double
-    Dim j As Double
 
     Dim path As String
     Dim ArrayFile() As String
@@ -840,67 +838,12 @@ Sub Macro11_Fill_Bookcases()
         i=i+1
     next
 
-    Randomize ' Initialize random-number generator.
-
-    ' Dim Arreglo(0, 30) As String
-    
-    ' Arreglo(0, 0) = "BESTÅ"
-    ' Arreglo(0, 1) = "BILLY"
-    ' Arreglo(0, 2) = "BILLY / BOTTNA"
-    ' Arreglo(0, 3) = "BILLY / GNEDBY"
-    ' Arreglo(0, 4) = "BILLY / OXBERG"
-    ' Arreglo(0, 5) = "BRIMNES"
-    ' Arreglo(0, 6) = "BRUSALI"
-    ' Arreglo(0, 7) = "EDVALLA"
-    ' Arreglo(0, 8) = "EKET"
-    ' Arreglo(0, 9) = "ENERYDA"
-    ' Arreglo(0, 10) = "GALANT"
-    ' Arreglo(0, 11) = "GNEDBY"
-    ' Arreglo(0, 12) = "GUBBARP"
-    ' Arreglo(0, 13) = "HACKÅS"
-    ' Arreglo(0, 14) = "HANVIKEN"
-    ' Arreglo(0, 15) = "HAVSTA"
-    ' Arreglo(0, 16) = "HEMNES"
-    ' Arreglo(0, 17) = "KALLAX"
-    ' Arreglo(0, 18) = "KLACKBERG"
-    ' Arreglo(0, 19) = "LAXVIKEN"
-    ' Arreglo(0, 20) = "LIATORP"
-    ' Arreglo(0, 21) = "LOMMARP"
-    ' Arreglo(0, 22) = "MÖLLARP"
-    ' Arreglo(0, 23) = "MOSSARYD"
-    ' Arreglo(0, 24) = "NANNARP"
-    ' Arreglo(0, 25) = "NOTVIKEN"
-    ' Arreglo(0, 26) = "ÖSTERNÄS"
-    ' Arreglo(0, 27) = "OXBERG"
-    ' Arreglo(0, 28) = "PS 2017"
-    ' Arreglo(0, 29) = "RIKSVIKEN"
-    ' Arreglo(0, 30) = "VASSVIKEN"
-
-
-    ' i = 0
-
-    ' j = 0
-
-    ' For Each Cell In Myrange
-
-    '     If j Mod 2 = 0 Then
-
-    '         Cell.Value = i + 1
-
-    '         i = i + 1
-    '         j = j + 1
-    '     Else
-
-    '         Cell.Value = Arreglo(0, i - 1)
-
-    '         j = j + 1
-    '     End If
-
-    ' Next Cell
-    
     '/////////////////PRICES/////////////////
+
     
     Set Myrange = Range("C2:C32")
+
+    Randomize ' Initialize random-number generator.
     
     For Each Cell In Myrange
 
@@ -928,198 +871,32 @@ Sub Macro11_Fill_Bookcases()
 
 End Sub
 
-Sub Macro13_Fill_Chairs()
+Sub Macro12_Fill_Chairs()
 
     Sheets("Chairs").Select
 
     Dim Myrange As Range
     Dim Cell As Range
     Dim i As Double
-    Dim j As Double
+    ' Dim j As Double
 
-    Dim Arreglo(0, 157) As String
 
-    Arreglo(0, 0) = "Aalto armchair"
-    Arreglo(0, 1) = "Adirondack chair Low"
-    Arreglo(0, 2) = "Aalto armchair 406"
-    Arreglo(0, 3) = "Adirondack chair High"
-    Arreglo(0, 4) = "Aeron chair"
-    Arreglo(0, 5) = "Air chair"
-    Arreglo(0, 6) = "Armchair"
-    Arreglo(0, 7) = "Bachelor's chair"
-    Arreglo(0, 8) = "Balans chair"
-    Arreglo(0, 9) = "Ball Chair"
-    Arreglo(0, 10) = "Bar stool"
-    Arreglo(0, 11) = "Barcelona chair"
-    Arreglo(0, 12) = "Bardic chair"
-    Arreglo(0, 13) = "Barrel chair"
-    Arreglo(0, 14) = "Bath chair"
-    Arreglo(0, 15) = "Beach chair (Strandkorb)"
-    Arreglo(0, 16) = "Bean bag chair"
-    Arreglo(0, 17) = "Bench chair"
-    Arreglo(0, 18) = "Bergère chair"
-    Arreglo(0, 19) = "Bikini chair"
-    Arreglo(0, 20) = "Bofinger chair"
-    Arreglo(0, 21) = "Bosun's chair"
-    Arreglo(0, 22) = "Breuer Chair"
-    Arreglo(0, 23) = "Brewster Chair"
-    Arreglo(0, 24) = "Bubble Chair"
-    Arreglo(0, 25) = "Bungee chair"
-    Arreglo(0, 26) = "Butterfly chair"
-    Arreglo(0, 27) = "Campeche chair"
-    Arreglo(0, 28) = "Cantilever chair"
-    Arreglo(0, 29) = "Captain's chair"
-    Arreglo(0, 30) = "Caquetoire Chair"
-    Arreglo(0, 31) = "Car chair"
-    Arreglo(0, 32) = "Carver chair"
-    Arreglo(0, 33) = "Cathedra"
-    Arreglo(0, 34) = "Chaise a bureau Chair"
-    Arreglo(0, 35) = "Chaise longue"
-    Arreglo(0, 36) = "Chesterfield chair"
-    Arreglo(0, 37) = "Chiavari chair"
-    Arreglo(0, 38) = "Club chair"
-    Arreglo(0, 39) = "Cogswell chair"
-    Arreglo(0, 40) = "Corner chair"
-    Arreglo(0, 41) = "Curule chair"
-    Arreglo(0, 42) = "Dante chair"
-    Arreglo(0, 43) = "Deckchair"
-    Arreglo(0, 44) = "Dentist chair"
-    Arreglo(0, 45) = "Dining chair"
-    Arreglo(0, 46) = "Director's chair"
-    Arreglo(0, 47) = "Easy chair"
-    Arreglo(0, 48) = "Eames Lounge Chair"
-    Arreglo(0, 49) = "Egg chair"
-    Arreglo(0, 50) = "Electric chair"
-    Arreglo(0, 51) = "Elijah's chair"
-    Arreglo(0, 52) = "Emeco 1006"
-    Arreglo(0, 53) = "Farthingale chair"
-    Arreglo(0, 54) = "Fauteuil Chair"
-    Arreglo(0, 55) = "Fiddleback Chair"
-    Arreglo(0, 56) = "Fighting Chair"
-    Arreglo(0, 57) = "Folding Chair"
-    Arreglo(0, 58) = "Folding seat"
-    Arreglo(0, 59) = "Friendship bench chair"
-    Arreglo(0, 60) = "Gaming chair"
-    Arreglo(0, 61) = "Garden Egg chair"
-    Arreglo(0, 62) = "Glastonbury chair"
-    Arreglo(0, 63) = "Glider (or platform rocker)"
-    Arreglo(0, 64) = "Hassock Chair"
-    Arreglo(0, 65) = "High Chair"
-    Arreglo(0, 66) = "Hanging Egg Chair"
-    Arreglo(0, 67) = "Inflatable chair"
-    Arreglo(0, 68) = "Ironing chair"
-    Arreglo(0, 69) = "Jack and Jill chair"
-    Arreglo(0, 70) = "Jump seat"
-    Arreglo(0, 71) = "Kneeling chairs "
-    Arreglo(0, 72) = "Knotted chair"
-    Arreglo(0, 73) = "Ladderback chair"
-    Arreglo(0, 74) = "Lambing chair"
-    Arreglo(0, 75) = "Lawn chair"
-    Arreglo(0, 76) = "Lifeguard chairs"
-    Arreglo(0, 77) = "Lift chair"
-    Arreglo(0, 78) = "Litter sedan chair"
-    Arreglo(0, 79) = "Louis Ghost chair"
-    Arreglo(0, 80) = "Massage chair"
-    Arreglo(0, 81) = "Monobloc chair"
-    Arreglo(0, 82) = "Morris chair"
-    Arreglo(0, 83) = "Muskoka chair"
-    Arreglo(0, 84) = "Navy chair"
-    Arreglo(0, 85) = "No. 14 chair"
-    Arreglo(0, 86) = "Nursing chair"
-    Arreglo(0, 87) = "Office chair"
-    Arreglo(0, 88) = "Orbiter seat "
-    Arreglo(0, 89) = "ON Chair"
-    Arreglo(0, 90) = "Ottoman Chair"
-    Arreglo(0, 91) = "Ovalia Egg Chair"
-    Arreglo(0, 92) = "Onit chair"
-    Arreglo(0, 93) = "Panton Chair"
-    Arreglo(0, 94) = "Papasan chair"
-    Arreglo(0, 95) = "Parsons chair"
-    Arreglo(0, 96) = "Patio chair"
-    Arreglo(0, 97) = "Peacock chair"
-    Arreglo(0, 98) = "Pew Chair"
-    Arreglo(0, 99) = "Pew stacker chair"
-    Arreglo(0, 100) = "Planter's chair"
-    Arreglo(0, 101) = "Poäng armchair "
-    Arreglo(0, 102) = "Poofbag chair"
-    Arreglo(0, 103) = "Porter's chair"
-    Arreglo(0, 104) = "Potty chair"
-    Arreglo(0, 105) = "Pouffe seat"
-    Arreglo(0, 106) = "Power chairs"
-    Arreglo(0, 107) = "Pressback chair"
-    Arreglo(0, 108) = "Pushchair or stroller"
-    Arreglo(0, 109) = "Recliner chair "
-    Arreglo(0, 110) = "Restraint chair"
-    Arreglo(0, 111) = "Revolving chair"
-    Arreglo(0, 112) = "Rex chair"
-    Arreglo(0, 113) = "Ribbon Chair"
-    Arreglo(0, 114) = "Rocking chair"
-    Arreglo(0, 115) = "Rumble seat"
-    Arreglo(0, 116) = "Saddle chair"
-    Arreglo(0, 117) = "Savonarola chair"
-    Arreglo(0, 118) = "Sedan chair"
-    Arreglo(0, 119) = "Sgabello seat"
-    Arreglo(0, 120) = "Shaker rocker rocking chair"
-    Arreglo(0, 121) = "Shaker tilting chair"
-    Arreglo(0, 122) = "Shower chair"
-    Arreglo(0, 123) = "Side chair"
-    Arreglo(0, 124) = "Sit-stand chair"
-    Arreglo(0, 125) = "Sling chair"
-    Arreglo(0, 126) = "Slumber chair"
-    Arreglo(0, 127) = "Spinning chair"
-    Arreglo(0, 128) = "Stacking chair"
-    Arreglo(0, 129) = "Steno chair"
-    Arreglo(0, 130) = "Step chair"
-    Arreglo(0, 131) = "Stool a chair "
-    Arreglo(0, 132) = "Sweetheart chair"
-    Arreglo(0, 133) = "Swivel chairs"
-    Arreglo(0, 134) = "Tarachair"
-    Arreglo(0, 135) = "Tête-à-tête chair"
-    Arreglo(0, 136) = "Throne ceremonial chair"
-    Arreglo(0, 137) = "Toilet chair"
-    Arreglo(0, 138) = "Tuffet"
-    Arreglo(0, 139) = "Tulip chair"
-    Arreglo(0, 140) = "Turned chair"
-    Arreglo(0, 141) = "Two-slat post-and-rung shaving chair"
-    Arreglo(0, 142) = "UP5 chair"
-    Arreglo(0, 143) = "Visitor's chair"
-    Arreglo(0, 144) = "Voyeuse chair"
-    Arreglo(0, 145) = "Wainscot Chair"
-    Arreglo(0, 146) = "Watchman's chair"
-    Arreglo(0, 147) = "Wassily Chair"
-    Arreglo(0, 148) = "Wheelchair"
-    Arreglo(0, 149) = "Wicker chair"
-    Arreglo(0, 150) = "Wiggle chair"
-    Arreglo(0, 151) = "Windsor chair"
-    Arreglo(0, 152) = "Wing chair"
-    Arreglo(0, 153) = "Writing armchair"
-    Arreglo(0, 154) = "X-chair"
-    Arreglo(0, 155) = "Zaisu legless chair"
-    Arreglo(0, 156) = "Zig-Zag Chair"
-    Arreglo(0, 157) = "Zero-gravity chairs"
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    Set Myrange = Range("A2:B159")
-    i = 0
+    path = "\data\chairs.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
-    j = 0
+    Set Myrange = Range("A1:B159")
 
-    For Each Cell In Myrange
+    i=0
 
-        If j Mod 2 = 0 Then
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
 
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
-    
      '/////////////////PRICES/////////////////
     
     Set Myrange = Range("C2:C159")
@@ -1140,12 +917,7 @@ Sub Macro13_Fill_Chairs()
     
     '/////////////////PRICES/////////////////
     
-
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Chairs"
-    Range("B1").Font.Bold = True
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -1156,7 +928,7 @@ Sub Macro13_Fill_Chairs()
 
 End Sub
 
-Sub Macro14_Fill_Copiers()
+Sub Macro13_Fill_Copiers()
 
     Sheets("Copiers").Select
 
@@ -5690,6 +5462,8 @@ Sub MacroN_All_TEMP()
     Call Macro09_Fill_Binders
     Call Macro10_Fill_Art
     Call Macro11_Fill_Bookcases
+    Call Macro12_Fill_Chairs
+    Call Macro13_Fill_Copiers
 
 end Sub
 
@@ -5708,8 +5482,8 @@ Sub MacroN_All()
     Call Macro09_Fill_Binders
     Call Macro10_Fill_Art
     Call Macro11_Fill_Bookcases
-    Call Macro13_Fill_Chairs
-    Call Macro14_Fill_Copiers
+    Call Macro12_Fill_Chairs
+    Call Macro13_Fill_Copiers
     Call Macro15_Fill_Envelopes
     Call Macro16_Fill_Fasteners
     Call Macro17_Fill_Furnishings
