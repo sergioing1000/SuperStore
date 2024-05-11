@@ -1145,10 +1145,7 @@ Sub Macro17_Fill_Labels()
     Sheets("Labels").Select
 
     Dim Myrange As Range
-    ' Dim Cell As Range
     Dim i As Double
-    ' Dim j As Double
-
 
     Dim path As String
     Dim ArrayFile() As String
@@ -1165,57 +1162,7 @@ Sub Macro17_Fill_Labels()
         cell.value = ArrayFile (i)
         i=i+1
     next
-
-
-    ' Dim Arreglo(0, 23) As String
-
-    ' Arreglo(0, 0) = "Products Labels"
-    ' Arreglo(0, 1) = "Packaging Labels"
-    ' Arreglo(0, 2) = "Assets Labels"
-    ' Arreglo(0, 3) = "Textiles Labels"
-    ' Arreglo(0, 4) = "Mailing Labels"
-    ' Arreglo(0, 5) = "Notebook Labels"
-    ' Arreglo(0, 6) = "Piggyback Labels"
-    ' Arreglo(0, 7) = "Smart Labels"
-    ' Arreglo(0, 8) = "Blockout Labels"
-    ' Arreglo(0, 9) = "Radioactive Labels"
-    ' Arreglo(0, 10) = "Laser / printer labels"
-    ' Arreglo(0, 11) = "Security Labels"
-    ' Arreglo(0, 12) = "Antimicrobial Labels"
-    ' Arreglo(0, 13) = "Fold-out Labels"
-    ' Arreglo(0, 14) = "Barcode Labels"
-    ' Arreglo(0, 15) = "Paper Labels"
-    ' Arreglo(0, 16) = "Nonwoven fabric Labels"
-    ' Arreglo(0, 17) = "Latex Labels"
-    ' Arreglo(0, 18) = "Plastics Labels"
-    ' Arreglo(0, 19) = "Foil Labels"
-    ' Arreglo(0, 20) = "Thermal Labels"
-    ' Arreglo(0, 21) = "Thermal transfer Labels"
-    ' Arreglo(0, 22) = "Thermal transfer ribbon Labels"
-    ' Arreglo(0, 23) = "Substrate Silk Screen Labels"
-    
-
-    ' i = 0
-
-    ' j = 0
-
-    ' For Each Cell In Myrange
-
-    '     If j Mod 2 = 0 Then
-
-    '         Cell.Value = i + 1
-
-    '         i = i + 1
-    '         j = j + 1
-    '     Else
-
-    '         Cell.Value = Arreglo(0, i - 1)
-
-    '         j = j + 1
-    '     End If
-
-    ' Next Cell
-    
+   
      '/////////////////PRICES/////////////////
     
     Set Myrange = Range("C2:C25")
@@ -1246,58 +1193,28 @@ Sub Macro17_Fill_Labels()
 
 
 End Sub
-Sub Macro19_Fill_Gym_Machines()
+Sub Macro18_Fill_Gym_Machines()
 
     Sheets("Gym Machines").Select
 
     Dim Myrange As Range
-    Dim Cell As Range
     Dim i As Double
-    Dim j As Double
 
-    Dim Arreglo(0, 29) As String
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
+    path = "\data\gymmachines.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
+    Set Myrange = Range("A1:B18")
 
-    Arreglo(0, 0) = "Cardio equipment"
-    Arreglo(0, 1) = "Spinning Bikes"
-    Arreglo(0, 2) = "Cross-country ski machine"
-    Arreglo(0, 3) = "Elliptical trainers"
-    Arreglo(0, 4) = "Rowing machines"
-    Arreglo(0, 5) = "Stair-steppers"
-    Arreglo(0, 6) = "Stationary bicycle"
-    Arreglo(0, 7) = "Exercise Bikes"
-    Arreglo(0, 8) = "Assault Air Bike"
-    Arreglo(0, 9) = "Treadmill"
-    Arreglo(0, 10) = "Strength equipment"
-    Arreglo(0, 11) = "Ankle weights"
-    Arreglo(0, 12) = "Exercise mat"
-    Arreglo(0, 13) = "Hand weights"
-    Arreglo(0, 14) = "Resistance bands and tubing"
-    Arreglo(0, 15) = "Bands"
-    Arreglo(0, 16) = "Tubing"
-    
-    Set Myrange = Range("A2:B18")
-    i = 0
+    i=0
 
-    j = 0
-
-    For Each Cell In Myrange
-
-        If j Mod 2 = 0 Then
-
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
     
     '/////////////////PRICES/////////////////
     
@@ -1319,11 +1236,7 @@ Sub Macro19_Fill_Gym_Machines()
     
     '/////////////////PRICES/////////////////
 
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Gym Machines"
-    Range("B1").Font.Bold = True
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -5024,6 +4937,7 @@ Sub MacroN_All_TEMP()
     Call Macro15_Fill_Fasteners
     Call Macro16_Fill_Furnishings
     Call Macro17_Fill_Labels
+    Call Macro18_Fill_Gym_Machines
 
 end Sub
 
@@ -5048,7 +4962,7 @@ Sub MacroN_All()
     Call Macro15_Fill_Fasteners
     Call Macro16_Fill_Furnishings
     Call Macro17_Fill_Labels
-    Call Macro19_Fill_Gym_Machines
+    Call Macro18_Fill_Gym_Machines
     Call Macro20_Fill_Papers
     Call Macro21_Fill_Storage
     Call Macro22_Fill_Supplies
