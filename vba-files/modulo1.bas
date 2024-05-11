@@ -760,179 +760,32 @@ Sub Macro09_Fill_Binders()
 
 End Sub
 
-Sub Macro11_Fill_Art()
+Sub Macro10_Fill_Art()
 
     Sheets("Art").Select
 
     Dim Myrange As Range
     Dim Cell As Range
     Dim i As Double
-    Dim j As Double
 
-    Dim Arreglo(0, 138) As String
-    
-    Arreglo(0, 0) = "Jewelry Making-Beading Supplies"
-    Arreglo(0, 1) = "Jewelry Making-Beads & Bead Assortments"
-    Arreglo(0, 2) = "Jewelry Making-Charms"
-    Arreglo(0, 3) = "Jewelry Making-Jewelry Casting Supplies"
-    Arreglo(0, 4) = "Jewelry Making-Jewelry Findings"
-    Arreglo(0, 5) = "Jewelry Making-Jewelry Making Kits"
-    Arreglo(0, 6) = "Jewelry Making-Jewelry Making Tools & Accessories"
-    Arreglo(0, 7) = "Jewelry Making-Metal Stamping Tools"
-    Arreglo(0, 8) = "Jewelry Making-Purse Making"
-    Arreglo(0, 9) = "Jewelry Making-Storage"
-    Arreglo(0, 10) = "Jewelry Making-Wax Molding Materials"
-    Arreglo(0, 11) = "Crafting-Basket Making"
-    Arreglo(0, 12) = "Crafting-Candle Making"
-    Arreglo(0, 13) = "Crafting-Ceramics & Pottery"
-    Arreglo(0, 14) = "Crafting-Craft Supplies"
-    Arreglo(0, 15) = "Crafting-Doll Making"
-    Arreglo(0, 16) = "Crafting-Fabric Ribbons"
-    Arreglo(0, 17) = "Crafting-Floral Arranging"
-    Arreglo(0, 18) = "Crafting-Mosaic Making"
-    Arreglo(0, 19) = "Crafting-Paper & Paper Crafts"
-    Arreglo(0, 20) = "Crafting-Picture Framing"
-    Arreglo(0, 21) = "Crafting-Scratchboards & Foil Engraving"
-    Arreglo(0, 22) = "Crafting-Sculpture Supplies"
-    Arreglo(0, 23) = "Crafting-Soap Making"
-    Arreglo(0, 24) = "Crafting-Weaving & Spinning"
-    Arreglo(0, 25) = "Crafting-Woodcrafts"
-    Arreglo(0, 26) = "Decorate Fabric"
-    Arreglo(0, 27) = "Fabric Decorating-Dyes"
-    Arreglo(0, 28) = "Fabric Decorating-Fabric & Textile Paints"
-    Arreglo(0, 29) = "Fabric Decorating-Fabric Decorating Kits"
-    Arreglo(0, 30) = "Fabric Decorating-Fixatives"
-    Arreglo(0, 31) = "Gift Wrapping-Gift Bags"
-    Arreglo(0, 32) = "Gift Wrapping-Gift Boxes"
-    Arreglo(0, 33) = "Gift Wrapping-Gift Wrap Cellophane"
-    Arreglo(0, 34) = "Gift Wrapping-Gift Wrap Cellophane Bags"
-    Arreglo(0, 35) = "Gift Wrapping-Gift Wrap Paper"
-    Arreglo(0, 36) = "Gift Wrapping-Gift Wrap Ribbons"
-    Arreglo(0, 37) = "Gift Wrapping-Gift Wrap Tags"
-    Arreglo(0, 38) = "Gift Wrapping-Wrapping Tissue"
-    Arreglo(0, 39) = "Crochet Hooks"
-    Arreglo(0, 40) = "Crochet Kits"
-    Arreglo(0, 41) = "Crochet Thread"
-    Arreglo(0, 42) = "Knitting & Crochet Notions"
-    Arreglo(0, 43) = "Knitting Kits"
-    Arreglo(0, 44) = "Knitting Needles"
-    Arreglo(0, 45) = "Knitting Patterns"
-    Arreglo(0, 46) = "Knitting & Crochet-Yarn"
-    Arreglo(0, 47) = "Knitting & Crochet-Yarn Storage"
-    Arreglo(0, 48) = "Counted Cross Stitch"
-    Arreglo(0, 49) = "Count aida Cross Stitch"
-    Arreglo(0, 50) = "Sullivans Embroidery Floss Skein"
-    Arreglo(0, 51) = "PRYM Quilting Hoop Wood"
-    Arreglo(0, 52) = "Art & Poster Tubes"
-    Arreglo(0, 53) = "Art Tool & Sketch Boxes"
-    Arreglo(0, 54) = "Beading Storage"
-    Arreglo(0, 55) = "Craft & Sewing Supplies"
-    Arreglo(0, 56) = "Embroidery Storage"
-    Arreglo(0, 57) = "Scrapbooking Storage"
-    Arreglo(0, 58) = "Sewing Storage"
-    Arreglo(0, 59) = "Yarn Storage"
-    Arreglo(0, 60) = "Drying & Print Racks"
-    Arreglo(0, 61) = "Paint Brush Organizers"
-    Arreglo(0, 62) = "Paint Brush Holders"
-    Arreglo(0, 63) = "Pen, Pencil & Marker Cases"
-    Arreglo(0, 64) = "Portfolios"
-    Arreglo(0, 65) = "Art Storage Boxes "
-    Arreglo(0, 66) = "Art Storage Organizers"
-    Arreglo(0, 67) = "Storage Cabinets"
-    Arreglo(0, 68) = "Art Paper-Artist Trading Cards"
-    Arreglo(0, 69) = "Art Paper-Bristol Paper & Vellum"
-    Arreglo(0, 70) = "Art Paper-Drawing Paper"
-    Arreglo(0, 71) = "Art Paper-Easel Pads"
-    Arreglo(0, 72) = "Art Paper-Pastel Paper"
-    Arreglo(0, 73) = "Art Paper-Sketchbooks & Notebooks"
-    Arreglo(0, 74) = "Art Paper-Tracing Paper"
-    Arreglo(0, 75) = "Art Paper-Watercolor Paper"
-    Arreglo(0, 76) = "Canvas-Canvas Boards & Panels"
-    Arreglo(0, 77) = "Canvas-Canvas Tools & Accessories"
-    Arreglo(0, 78) = "Boards -Hardboard"
-    Arreglo(0, 79) = "Boards -Pastelboard"
-    Arreglo(0, 80) = "Canvas-Pre-Stretched Canvas"
-    Arreglo(0, 81) = "Boards -Wood Art Boards"
-    Arreglo(0, 82) = "Drawing-Art Sets"
-    Arreglo(0, 83) = "Drawing & Lettering Aids"
-    Arreglo(0, 84) = "Drawing Media"
-    Arreglo(0, 85) = "Drawing-Erasers"
-    Arreglo(0, 86) = "Drawing-Sharpeners"
-    Arreglo(0, 87) = "Drawing-Easels"
-    Arreglo(0, 88) = "Painting-Airbrush Materials"
-    Arreglo(0, 89) = "Painting-Kits"
-    Arreglo(0, 90) = "Paint Finishes"
-    Arreglo(0, 91) = "Paint Mediums & Additives"
-    Arreglo(0, 92) = "Paint Pens, Markers & Daubers"
-    Arreglo(0, 93) = "Paint Sponges"
-    Arreglo(0, 94) = "Paint-By-Number Kits"
-    Arreglo(0, 95) = "Paintbrushes"
-    Arreglo(0, 96) = "Paints"
-    Arreglo(0, 97) = "Palette Knives"
-    Arreglo(0, 98) = "Palettes & Palette Cups"
-    Arreglo(0, 99) = "Party Decorations-Balloons"
-    Arreglo(0, 100) = "Party Decorations-Banners & Garlands"
-    Arreglo(0, 101) = "Party Decorations-Card Boxes"
-    Arreglo(0, 102) = "Party Decorations-Cardboard Cutouts"
-    Arreglo(0, 103) = "Party Decorations-Centerpieces"
-    Arreglo(0, 104) = "Party Decorations-Confetti"
-    Arreglo(0, 105) = "Party Decorations-Guestbooks"
-    Arreglo(0, 106) = "Party Decorations-Luminarias"
-    Arreglo(0, 107) = "Party Decorations-Streamers"
-    Arreglo(0, 108) = "Party Decorations-Tablecovers"
-    Arreglo(0, 109) = "Party Decorations-Tissue Pom Poms"
-    Arreglo(0, 110) = "Printmaking-Etching Supplies"
-    Arreglo(0, 111) = "Printmaking-Printing Presses & Accessories"
-    Arreglo(0, 112) = "Printmaking-Printmaking Inks"
-    Arreglo(0, 113) = "Printmaking-Relief & Block Printing Materials"
-    Arreglo(0, 114) = "Printmaking-Screen Printing"
-    Arreglo(0, 115) = "Stamping-Adhesive Vinyl"
-    Arreglo(0, 116) = "Stamping-Adhesives"
-    Arreglo(0, 117) = "Stamping-Albums & Refills"
-    Arreglo(0, 118) = "Stamping-Chipboard"
-    Arreglo(0, 119) = "Stamping-Cutting Mats"
-    Arreglo(0, 120) = "Stamping-Die-Cutting & Embossing"
-    Arreglo(0, 121) = "Stamping-Kits"
-    Arreglo(0, 122) = "Stamping-Paper & Card Stock"
-    Arreglo(0, 123) = "Stamping-Paper Punches"
-    Arreglo(0, 124) = "Stamping-Pens & Markers"
-    Arreglo(0, 125) = "Scrapbooking Embellishments"
-    Arreglo(0, 126) = "Scrapbooking Tools"
-    Arreglo(0, 127) = "Scrapbooking -Stamps & Ink Pads"
-    Arreglo(0, 128) = "Scrapbooking -Stickers & Sticker Machines"
-    Arreglo(0, 129) = "Scrapbooking -Stencils & Templates"
-    Arreglo(0, 130) = "Sewing-Quilting"
-    Arreglo(0, 131) = "Sewing Machine Parts & Accessories"
-    Arreglo(0, 132) = "Sewing Machines"
-    Arreglo(0, 133) = "Sewing Notions & Supplies"
-    Arreglo(0, 134) = "Sewing Patterns & Templates"
-    Arreglo(0, 135) = "Sewing Project Kits"
-    Arreglo(0, 136) = "Sewing-Storage & Furniture"
-    Arreglo(0, 137) = "Sewing-Thread & Floss"
-    Arreglo(0, 138) = "Sewing-Trim & Embellishments"
-      
-    Set Myrange = Range("A2:B140")
-    i = 0
+    Set Myrange = Range("A1:B140")
 
-    j = 0
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    For Each Cell In Myrange
+    path = "\data\art.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
-        If j Mod 2 = 0 Then
+    i=0
 
-            Cell.Value = i + 1
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
 
-            i = i + 1
-            j = j + 1
-        Else
+    Randomize ' Initialize random-number generator.
 
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
-    
     '/////////////////PRICES/////////////////
     
     Set Myrange = Range("C2:C140")
@@ -952,12 +805,8 @@ Sub Macro11_Fill_Art()
     Columns("C:C").NumberFormat = "#,##0.00"
     
     '/////////////////PRICES/////////////////
-
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Art"
-    Range("B1").Font.Bold = True
+    
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -966,7 +815,7 @@ Sub Macro11_Fill_Art()
     ActiveWindow.FreezePanes = True
 
 End Sub
-Sub Macro12_Fill_Bookcases()
+Sub Macro11_Fill_Bookcases()
 
     Sheets("Bookcases").Select
 
@@ -975,61 +824,79 @@ Sub Macro12_Fill_Bookcases()
     Dim i As Double
     Dim j As Double
 
-    Dim Arreglo(0, 30) As String
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
+
+    path = "\data\art.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
+
+    Set Myrange = Range("A1:B32")
+
+    i=0
+
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
+
+    Randomize ' Initialize random-number generator.
+
+    ' Dim Arreglo(0, 30) As String
     
-    Arreglo(0, 0) = "BESTÅ"
-    Arreglo(0, 1) = "BILLY"
-    Arreglo(0, 2) = "BILLY / BOTTNA"
-    Arreglo(0, 3) = "BILLY / GNEDBY"
-    Arreglo(0, 4) = "BILLY / OXBERG"
-    Arreglo(0, 5) = "BRIMNES"
-    Arreglo(0, 6) = "BRUSALI"
-    Arreglo(0, 7) = "EDVALLA"
-    Arreglo(0, 8) = "EKET"
-    Arreglo(0, 9) = "ENERYDA"
-    Arreglo(0, 10) = "GALANT"
-    Arreglo(0, 11) = "GNEDBY"
-    Arreglo(0, 12) = "GUBBARP"
-    Arreglo(0, 13) = "HACKÅS"
-    Arreglo(0, 14) = "HANVIKEN"
-    Arreglo(0, 15) = "HAVSTA"
-    Arreglo(0, 16) = "HEMNES"
-    Arreglo(0, 17) = "KALLAX"
-    Arreglo(0, 18) = "KLACKBERG"
-    Arreglo(0, 19) = "LAXVIKEN"
-    Arreglo(0, 20) = "LIATORP"
-    Arreglo(0, 21) = "LOMMARP"
-    Arreglo(0, 22) = "MÖLLARP"
-    Arreglo(0, 23) = "MOSSARYD"
-    Arreglo(0, 24) = "NANNARP"
-    Arreglo(0, 25) = "NOTVIKEN"
-    Arreglo(0, 26) = "ÖSTERNÄS"
-    Arreglo(0, 27) = "OXBERG"
-    Arreglo(0, 28) = "PS 2017"
-    Arreglo(0, 29) = "RIKSVIKEN"
-    Arreglo(0, 30) = "VASSVIKEN"
+    ' Arreglo(0, 0) = "BESTÅ"
+    ' Arreglo(0, 1) = "BILLY"
+    ' Arreglo(0, 2) = "BILLY / BOTTNA"
+    ' Arreglo(0, 3) = "BILLY / GNEDBY"
+    ' Arreglo(0, 4) = "BILLY / OXBERG"
+    ' Arreglo(0, 5) = "BRIMNES"
+    ' Arreglo(0, 6) = "BRUSALI"
+    ' Arreglo(0, 7) = "EDVALLA"
+    ' Arreglo(0, 8) = "EKET"
+    ' Arreglo(0, 9) = "ENERYDA"
+    ' Arreglo(0, 10) = "GALANT"
+    ' Arreglo(0, 11) = "GNEDBY"
+    ' Arreglo(0, 12) = "GUBBARP"
+    ' Arreglo(0, 13) = "HACKÅS"
+    ' Arreglo(0, 14) = "HANVIKEN"
+    ' Arreglo(0, 15) = "HAVSTA"
+    ' Arreglo(0, 16) = "HEMNES"
+    ' Arreglo(0, 17) = "KALLAX"
+    ' Arreglo(0, 18) = "KLACKBERG"
+    ' Arreglo(0, 19) = "LAXVIKEN"
+    ' Arreglo(0, 20) = "LIATORP"
+    ' Arreglo(0, 21) = "LOMMARP"
+    ' Arreglo(0, 22) = "MÖLLARP"
+    ' Arreglo(0, 23) = "MOSSARYD"
+    ' Arreglo(0, 24) = "NANNARP"
+    ' Arreglo(0, 25) = "NOTVIKEN"
+    ' Arreglo(0, 26) = "ÖSTERNÄS"
+    ' Arreglo(0, 27) = "OXBERG"
+    ' Arreglo(0, 28) = "PS 2017"
+    ' Arreglo(0, 29) = "RIKSVIKEN"
+    ' Arreglo(0, 30) = "VASSVIKEN"
 
-    Set Myrange = Range("A2:B32")
-    i = 0
 
-    j = 0
+    ' i = 0
 
-    For Each Cell In Myrange
+    ' j = 0
 
-        If j Mod 2 = 0 Then
+    ' For Each Cell In Myrange
 
-            Cell.Value = i + 1
+    '     If j Mod 2 = 0 Then
 
-            i = i + 1
-            j = j + 1
-        Else
+    '         Cell.Value = i + 1
 
-            Cell.Value = Arreglo(0, i - 1)
+    '         i = i + 1
+    '         j = j + 1
+    '     Else
 
-            j = j + 1
-        End If
+    '         Cell.Value = Arreglo(0, i - 1)
 
-    Next Cell
+    '         j = j + 1
+    '     End If
+
+    ' Next Cell
     
     '/////////////////PRICES/////////////////
     
@@ -1051,18 +918,13 @@ Sub Macro12_Fill_Bookcases()
     
     '/////////////////PRICES/////////////////
 
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Bookcases"
-    Range("B1").Font.Bold = True
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
 
     Range("A2").Select
     ActiveWindow.FreezePanes = True
-
 
 End Sub
 
@@ -5826,6 +5688,9 @@ Sub MacroN_All_TEMP()
     Call Macro07_Fill_Accesories
     Call Macro08_Fill_Appliances
     Call Macro09_Fill_Binders
+    Call Macro10_Fill_Art
+    Call Macro11_Fill_Bookcases
+
 end Sub
 
 Sub MacroN_All()
@@ -5841,8 +5706,8 @@ Sub MacroN_All()
     Call Macro07_Fill_Accesories
     Call Macro08_Fill_Appliances
     Call Macro09_Fill_Binders
-    Call Macro11_Fill_Art
-    Call Macro12_Fill_Bookcases
+    Call Macro10_Fill_Art
+    Call Macro11_Fill_Bookcases
     Call Macro13_Fill_Chairs
     Call Macro14_Fill_Copiers
     Call Macro15_Fill_Envelopes
