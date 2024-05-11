@@ -828,7 +828,7 @@ Sub Macro11_Fill_Bookcases()
     Dim ArrayFile() As String
     Dim numberOfLines As Long
 
-    path = "\data\art.dat"
+    path = "\data\bookcases.dat"
     modulo2.ReadFile path, ArrayFile, numberOfLines
 
     Set Myrange = Range("A1:B32")
