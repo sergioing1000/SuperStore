@@ -597,54 +597,34 @@ Sub Macro07_Fill_Accesories()
     Sheets("Accesories").Select
 
     Dim Myrange As Range
-    ' Dim Cell As Range
     Dim i As Long
-    Dim j As Long
 
-    Dim Arreglo(0, 13) As String
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    Arreglo(0, 0) = "Headbands"
-    Arreglo(0, 1) = "Hair Clips"
-    Arreglo(0, 2) = "Hair Pins"
-    Arreglo(0, 3) = "Hair Extensions"
-    Arreglo(0, 4) = "Hair Accessories"
-    Arreglo(0, 5) = "Cosmetic Bags"
-    Arreglo(0, 6) = "Nail Polish & Decoration Products"
-    Arreglo(0, 7) = "Hair Care"
-    Arreglo(0, 8) = "Makeup"
-    Arreglo(0, 9) = "Skin Care"
-    Arreglo(0, 10) = "Foot, Hand & Nail Care"
-    Arreglo(0, 11) = "Tools & Accessories"
-    Arreglo(0, 12) = "Shave & Hair Removal"
-    Arreglo(0, 13) = "Personal Care"
+    path = "\data\sub_categories.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
     Randomize ' Initialize random-number generator.
   
-    Set Myrange = Range("A2:B15")
+    Set Myrange = Range("A1:B15")
 
-    i = 0
+    i=0
 
-    j = 0
-
-    For Each Cell In Myrange
-
-        If j Mod 2 = 0 Then
-
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
     
     '/////////////////PRICES/////////////////
-    
+
+    With Range("C1")
+        .Value = "Unit Price USD"
+        .Font.Bold = True
+        .WrapText = True
+    End With
+
     Set Myrange = Range("C2:C15")
     
     For Each Cell In Myrange
@@ -653,22 +633,13 @@ Sub Macro07_Fill_Accesories()
         
     Next Cell
     
-    With Range("C1")
-        .Value = "Unit Price USD"
-        .Font.Bold = True
-        .WrapText = True
-    End With
-    
+   
     Columns("C:C").NumberFormat = "#,##0.00"
     
     '/////////////////PRICES/////////////////
-   
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Accesories"
-    Range("B1").Font.Bold = True
     
+    Range("A1:C1").Font.Bold = True
+
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
 
@@ -680,178 +651,33 @@ Sub Macro07_Fill_Accesories()
 End Sub
 
 
-Sub Macro09_Fill_Appliances()
+Sub Macro08_Fill_Appliances()
 
 
     Sheets("Appliances").Select
 
     Dim Myrange As Range
-    Dim Cell As Range
     Dim i As Double
     Dim j As Double
 
-    Dim Arreglo(0, 133) As String
 
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    Arreglo(0, 0) = "Air conditioner"
-    Arreglo(0, 1) = "Air ioniser"
-    Arreglo(0, 2) = "Air purifier"
-    Arreglo(0, 3) = "Appliance plug"
-    Arreglo(0, 4) = "Aroma lamp"
-    Arreglo(0, 5) = "Attic fan"
-    Arreglo(0, 6) = "Bachelor griller"
-    Arreglo(0, 7) = "Bedside lamp"
-    Arreglo(0, 8) = "Back boiler"
-    Arreglo(0, 9) = "Beverage opener"
-    Arreglo(0, 10) = "Blender"
-    Arreglo(0, 11) = "Box fan"
-    Arreglo(0, 12) = "Blade Assembly"
-    Arreglo(0, 13) = "Calculator"
-    Arreglo(0, 14) = "Camcorder"
-    Arreglo(0, 15) = "Can opener"
-    Arreglo(0, 16) = "Cassette player"
-    Arreglo(0, 17) = "Ceiling fan"
-    Arreglo(0, 18) = "Central vacuum cleaner"
-    Arreglo(0, 19) = "Grandfather clock"
-    Arreglo(0, 20) = "Wall clock"
-    Arreglo(0, 21) = "Clothes dryer"
-    Arreglo(0, 22) = "Clothes iron"
-    Arreglo(0, 23) = "Coffee grinder"
-    Arreglo(0, 24) = "Coffeemaker"
-    Arreglo(0, 25) = "Coffee percolator"
-    Arreglo(0, 26) = "Cold-pressed juicer"
-    Arreglo(0, 27) = "Cooler"
-    Arreglo(0, 28) = "Combo washer dryer"
-    Arreglo(0, 29) = "Communal oven"
-    Arreglo(0, 30) = "Convection microwave"
-    Arreglo(0, 31) = "Convection oven 1000W"
-    Arreglo(0, 32) = "Corn roaster"
-    Arreglo(0, 33) = "Corn butterer"
-    Arreglo(0, 34) = "Crepe maker"
-    Arreglo(0, 35) = "Crepe machine"
-    Arreglo(0, 36) = "Convection oven 1500W"
-    Arreglo(0, 37) = "Deep fryer"
-    Arreglo(0, 38) = "Dehumidifier"
-    Arreglo(0, 39) = "Digital camera"
-    Arreglo(0, 40) = "Dish drying cabinet"
-    Arreglo(0, 41) = "Dishwasher"
-    Arreglo(0, 42) = "Drawer dishwasher"
-    Arreglo(0, 43) = "DVD player"
-    Arreglo(0, 44) = "Edger"
-    Arreglo(0, 45) = "Electric cooker"
-    Arreglo(0, 46) = "Electric razor"
-    Arreglo(0, 47) = "Electric toothbrush"
-    Arreglo(0, 48) = "Electric water boiler"
-    Arreglo(0, 49) = "Evaporative cooler"
-    Arreglo(0, 50) = "Exhaust hood"
-    Arreglo(0, 51) = "Fan heater"
-    Arreglo(0, 52) = "Desk fan"
-    Arreglo(0, 53) = "Fire detector"
-    Arreglo(0, 54) = "Food processor"
-    Arreglo(0, 55) = "Forced-air"
-    Arreglo(0, 56) = "Freezer"
-    Arreglo(0, 57) = "Futon dryer"
-    Arreglo(0, 58) = "Garbage disposal unit"
-    Arreglo(0, 59) = "Gas Stove"
-    Arreglo(0, 60) = "Gramaphone"
-    Arreglo(0, 61) = "Gravy strainer"
-    Arreglo(0, 62) = "Hair dryer"
-    Arreglo(0, 63) = "Hair iron"
-    Arreglo(0, 64) = "Hearing aid"
-    Arreglo(0, 65) = "Hob (hearth)"
-    Arreglo(0, 66) = "Home Cake server"
-    Arreglo(0, 67) = "Humidifier (Vaporizer)"
-    Arreglo(0, 68) = "HVAC"
-    Arreglo(0, 69) = "Icebox"
-    Arreglo(0, 70) = "Juicer"
-    Arreglo(0, 71) = "Microphone Karaoke Set"
-    Arreglo(0, 72) = "Disco ball Karaoke Set"
-    Arreglo(0, 73) = "Kimchi refrigerator"
-    Arreglo(0, 74) = "Lawn mower"
-    Arreglo(0, 75) = "Riding mower"
-    Arreglo(0, 76) = "Leaf blower"
-    Arreglo(0, 77) = "Lighter"
-    Arreglo(0, 78) = "Light fixture"
-    Arreglo(0, 79) = "Melting Chocolate Fountain"
-    Arreglo(0, 80) = "Meat grinder"
-    Arreglo(0, 81) = "Megaphone"
-    Arreglo(0, 82) = "Micathermic heater"
-    Arreglo(0, 83) = "Microwave oven"
-    Arreglo(0, 84) = "Mixer"
-    Arreglo(0, 85) = "Mogul lamp"
-    Arreglo(0, 86) = "Mousetrap"
-    Arreglo(0, 87) = "Nightlight"
-    Arreglo(0, 88) = "Oil heater"
-    Arreglo(0, 89) = "Oven Cleaner"
-    Arreglo(0, 90) = "Panini press"
-    Arreglo(0, 91) = "Pasta maker"
-    Arreglo(0, 92) = "Patio heater"
-    Arreglo(0, 93) = "Paper shredder"
-    Arreglo(0, 94) = "Pencil sharpener"
-    Arreglo(0, 95) = "Popcorn maker"
-    Arreglo(0, 96) = "Pressure-cooker"
-    Arreglo(0, 97) = "Radiator (heating)"
-    Arreglo(0, 98) = "Radio receiver"
-    Arreglo(0, 99) = "Interior refrigerator"
-    Arreglo(0, 100) = "Thermal mass refrigerator"
-    Arreglo(0, 101) = "Rotisserie"
-    Arreglo(0, 102) = "Sewing machine"
-    Arreglo(0, 103) = "Kitchen sink"
-    Arreglo(0, 104) = "Separate sink spray"
-    Arreglo(0, 105) = "Slow cooker"
-    Arreglo(0, 106) = "Snowblower"
-    Arreglo(0, 107) = "Space heater"
-    Arreglo(0, 108) = "Steam mop"
-    Arreglo(0, 109) = "Stereo"
-    Arreglo(0, 110) = "Stove"
-    Arreglo(0, 111) = "Sump pump"
-    Arreglo(0, 112) = "Digital Phone"
-    Arreglo(0, 113) = "Table lamp"
-    Arreglo(0, 114) = "Television set Reciver"
-    Arreglo(0, 115) = "Television Remote Control"
-    Arreglo(0, 116) = "Television set Speaker"
-    Arreglo(0, 117) = "Tie Rack"
-    Arreglo(0, 118) = "Toaster oven"
-    Arreglo(0, 119) = "Toaster"
-    Arreglo(0, 120) = "Trash compactor"
-    Arreglo(0, 121) = "Trouser Rack"
-    Arreglo(0, 122) = "Manual vacuum cleaner"
-    Arreglo(0, 123) = "Robotic vacuum cleaner"
-    Arreglo(0, 124) = "Videocassette recorder"
-    Arreglo(0, 125) = "Waffle iron"
-    Arreglo(0, 126) = "Washing machine"
-    Arreglo(0, 127) = "Water cooker"
-    Arreglo(0, 128) = "Waterpik"
-    Arreglo(0, 129) = "Water purifier"
-    Arreglo(0, 130) = "Solar water heater"
-    Arreglo(0, 131) = "Tankless water heater"
-    Arreglo(0, 132) = "Weed Eater"
-    Arreglo(0, 133) = "Window fan"
+    path = "\data\appliances.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
+    Randomize ' Initialize random-number generator.
     
-    
-    Set Myrange = Range("A2:B135")
-    i = 0
+    Set Myrange = Range("A1:B135")
 
-    j = 0
+    i=0
 
-    For Each Cell In Myrange
-
-        If j Mod 2 = 0 Then
-
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
-    
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
     
     '/////////////////PRICES/////////////////
     
@@ -873,12 +699,7 @@ Sub Macro09_Fill_Appliances()
     
     '/////////////////PRICES/////////////////
     
-
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Appliances"
-    Range("B1").Font.Bold = True
+    Range("A1:B1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -6035,6 +5856,7 @@ Sub MacroN_All_TEMP()
     Call Macro05_Fill_Categories
     Call Macro06_Fill_Sub_Category
     Call Macro07_Fill_Accesories
+    Call Macro08_Fill_Appliances
 
 end Sub
 
@@ -6049,7 +5871,7 @@ Sub MacroN_All()
     Call Macro06_Fill_Sub_Category
            
     Call Macro07_Fill_Accesories
-    Call Macro09_Fill_Appliances
+    Call Macro08_Fill_Appliances
     Call Macro10_Fill_Binders
     Call Macro11_Fill_Art
     Call Macro12_Fill_Bookcases
