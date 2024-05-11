@@ -1033,121 +1033,28 @@ Sub Macro14_Fill_Envelopes()
     ActiveWindow.FreezePanes = True
 
 End Sub
-Sub Macro16_Fill_Fasteners()
+Sub Macro15_Fill_Fasteners()
 
     Sheets("Fasteners").Select
 
     Dim Myrange As Range
-    Dim Cell As Range
     Dim i As Double
-    Dim j As Double
 
-    Dim Arreglo(0, 81) As String
-    
-    Arreglo(0, 0) = "Carriage Bolts"
-    Arreglo(0, 1) = "Hex Head Bolts"
-    Arreglo(0, 2) = "Machine Screws"
-    Arreglo(0, 3) = "Shoulder Bolts"
-    Arreglo(0, 4) = "Socket Cap Screws"
-    Arreglo(0, 5) = "Socket Set 'Grub' Screws"
-    Arreglo(0, 6) = "Square Head Bolts"
-    Arreglo(0, 7) = "Deck Screws"
-    Arreglo(0, 8) = "Hex Lag Screws"
-    Arreglo(0, 9) = "Self-Drilling Screws"
-    Arreglo(0, 10) = "Sheet Metal Screws"
-    Arreglo(0, 11) = "Wood Screws"
-    Arreglo(0, 12) = "Cap Nuts"
-    Arreglo(0, 13) = "Castle Nuts"
-    Arreglo(0, 14) = "Coupling Nuts"
-    Arreglo(0, 15) = "Flange Serrated Nuts"
-    Arreglo(0, 16) = "Hex Finish Nuts"
-    Arreglo(0, 17) = "Hex Jam Nuts"
-    Arreglo(0, 18) = "Heavy Hex Nuts"
-    Arreglo(0, 19) = "Hex Machine Nuts"
-    Arreglo(0, 20) = "Hex Machine Nuts Small Pattern"
-    Arreglo(0, 21) = "Keps-K Lock Nuts"
-    Arreglo(0, 22) = "Knurled Thumb Nuts"
-    Arreglo(0, 23) = "Nylon Hex Jam Nuts"
-    Arreglo(0, 24) = "Nylon Insert Lock Nuts"
-    Arreglo(0, 25) = "Prevailing Torque Lock Nuts (Stover)"
-    Arreglo(0, 26) = "Slotted Hex Nuts"
-    Arreglo(0, 27) = "Square Nuts"
-    Arreglo(0, 28) = "Structural Heavy Hex Nuts"
-    Arreglo(0, 29) = "T-Nuts"
-    Arreglo(0, 30) = "Break Away or Shear Nuts"
-    Arreglo(0, 31) = "Tri-Groove Nuts"
-    Arreglo(0, 32) = "Wing Nuts"
-    Arreglo(0, 33) = "Backup Rivet Washers"
-    Arreglo(0, 34) = "Belleville Conical Washers"
-    Arreglo(0, 35) = "Dock Washers"
-    Arreglo(0, 36) = "Fender Washers"
-    Arreglo(0, 37) = "Fender Washers - Extra Thick"
-    Arreglo(0, 38) = "Finishing Cup Washers"
-    Arreglo(0, 39) = "Flat Washers"
-    Arreglo(0, 40) = "Flat Washers - Extra Thick"
-    Arreglo(0, 41) = "Flat Washers - Military Standard"
-    Arreglo(0, 42) = "Flat Washers - 900 Series"
-    Arreglo(0, 43) = "Lock Washers - Split Ring"
-    Arreglo(0, 44) = "Lock Washers - High Collar"
-    Arreglo(0, 45) = "Lock Washers - External Tooth"
-    Arreglo(0, 46) = "Lock Washers - Internal Tooth"
-    Arreglo(0, 47) = "NAS Washers"
-    Arreglo(0, 48) = "Neoprene EPDM Washers"
-    Arreglo(0, 49) = "Structural Washers"
-    Arreglo(0, 50) = "Square Washers"
-    Arreglo(0, 51) = "POP Rivets (Open End)"
-    Arreglo(0, 52) = "Closed End POP Rivets (Sealed)"
-    Arreglo(0, 53) = "Large Flange POP Rivets"
-    Arreglo(0, 54) = "Countersunk POP Rivets"
-    Arreglo(0, 55) = "Colored Rivets"
-    Arreglo(0, 56) = "Multi-Grip Rivets"
-    Arreglo(0, 57) = "Structural Rivets"
-    Arreglo(0, 58) = "Tri-Fold Rivets"
-    Arreglo(0, 59) = "Acoustical Wedge Anchors"
-    Arreglo(0, 60) = "Drop In Anchors"
-    Arreglo(0, 61) = "Double Expansion Shield Anchors"
-    Arreglo(0, 62) = "Hammer Drive Pin Anchors"
-    Arreglo(0, 63) = "Kaptoggle Hollow Wall Anchors"
-    Arreglo(0, 64) = "Lag Shield Expansion Anchors"
-    Arreglo(0, 65) = "Machine Screw Anchors"
-    Arreglo(0, 66) = "Masonry Screws"
-    Arreglo(0, 67) = "Plastic Toggle Anchors"
-    Arreglo(0, 68) = "Sammys Screws"
-    Arreglo(0, 69) = "Sleeve Anchors"
-    Arreglo(0, 70) = "Toggle Wing Hollow Wall Anchors"
-    Arreglo(0, 71) = "Wedge Anchors"
-    Arreglo(0, 72) = "Dowel Pins"
-    Arreglo(0, 73) = "Helicoil Threaded Inserts"
-    Arreglo(0, 74) = "E-Z Lok Threaded Inserts"
-    Arreglo(0, 75) = "Keystock"
-    Arreglo(0, 76) = "Threaded Rod"
-    Arreglo(0, 77) = "Unthreaded Rod"
-    Arreglo(0, 78) = "Bowed-E Retaining Rings"
-    Arreglo(0, 79) = "E-Style Retaining Rings"
-    Arreglo(0, 80) = "External Shaft Retaining Rings"
-    Arreglo(0, 81) = "Internal Housing Retaining Rings"
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    Set Myrange = Range("A2:B83")
-    i = 0
+    path = "\data\fasteners.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
-    j = 0
+    Set Myrange = Range("A1:B83")
 
-    For Each Cell In Myrange
+    i=0
 
-        If j Mod 2 = 0 Then
-
-            Cell.Value = i + 1
-
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
     
     '/////////////////PRICES/////////////////
     
@@ -1169,11 +1076,7 @@ Sub Macro16_Fill_Fasteners()
     
     '/////////////////PRICES/////////////////
 
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Fasteners"
-    Range("B1").Font.Bold = True
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -1181,204 +1084,32 @@ Sub Macro16_Fill_Fasteners()
     Range("A2").Select
     ActiveWindow.FreezePanes = True
 
-
-
-
 End Sub
 
-Sub Macro17_Fill_Furnishings()
+Sub Macro16_Fill_Furnishings()
 
     Sheets("Furnishings").Select
 
     Dim Myrange As Range
     Dim Cell As Range
     Dim i As Double
-    Dim j As Double
 
-    Dim Arreglo(0, 157) As String
-    
-    Arreglo(0, 0) = "Pinch pleat (or tailored pleat) curtains"
-    Arreglo(0, 1) = "Box pleat curtains"
-    Arreglo(0, 2) = "Goblet pleat curtains"
-    Arreglo(0, 3) = "Pencil pleat curtains"
-    Arreglo(0, 4) = "Eyelet (grommet) curtains"
-    Arreglo(0, 5) = "Rod-pocket curtains"
-    Arreglo(0, 6) = "Tab-top curtains"
-    Arreglo(0, 7) = "Chair Cushion"
-    Arreglo(0, 8) = "Bench Cushion"
-    Arreglo(0, 9) = "Chaise Cushion"
-    Arreglo(0, 10) = "Rocking Chair Seat Cushion"
-    Arreglo(0, 11) = "Window Seat Cushion"
-    Arreglo(0, 12) = "Wicker Cushion"
-    Arreglo(0, 13) = "Deep Seating Cushion"
-    Arreglo(0, 14) = "Church Pew Cushion"
-    Arreglo(0, 15) = "Boxed-Edge Cushion"
-    Arreglo(0, 16) = "Knife-Edge Cushion"
-    Arreglo(0, 17) = "Single-Welted Cushion"
-    Arreglo(0, 18) = "Double-Welted Cushion"
-    Arreglo(0, 19) = "Cushion Ties"
-    Arreglo(0, 20) = "Throw Pillows Cushion"
-    Arreglo(0, 21) = "BED SKIRT"
-    Arreglo(0, 22) = "DUST RUFFLE"
-    Arreglo(0, 23) = "MATTRESS"
-    Arreglo(0, 24) = "MATTRESS PROTECTOR"
-    Arreglo(0, 25) = "MATTRESS PAD"
-    Arreglo(0, 26) = "TOPPER"
-    Arreglo(0, 27) = "BOTTOM SHEET"
-    Arreglo(0, 28) = "FITTED SHEET"
-    Arreglo(0, 29) = "FLAT SHEET"
-    Arreglo(0, 30) = "TOP SHEET "
-    Arreglo(0, 31) = "DUVET COVER"
-    Arreglo(0, 32) = "CONFORTER"
-    Arreglo(0, 33) = "BLANKET"
-    Arreglo(0, 34) = "PILLOW PROTECTOR"
-    Arreglo(0, 35) = "PILLOW CASE"
-    Arreglo(0, 36) = "COVERLET "
-    Arreglo(0, 37) = "QUILT"
-    Arreglo(0, 38) = "BED SPREAD"
-    Arreglo(0, 39) = "THROW "
-    Arreglo(0, 40) = "BED SCARF"
-    Arreglo(0, 41) = "Amnesty-Sís-Pinton Tapestries"
-    Arreglo(0, 42) = "Apocalypse Tapestry"
-    Arreglo(0, 43) = "Armada tapestries"
-    Arreglo(0, 44) = "Aubusson tapestry"
-    Arreglo(0, 45) = "Bayeux Tapestry"
-    Arreglo(0, 46) = "Bayeux Tapestry tituli"
-    Arreglo(0, 47) = "Beauvais Manufactory"
-    Arreglo(0, 48) = "St. Hedwig's Cathedral"
-    Arreglo(0, 49) = "Brussels tapestry"
-    Arreglo(0, 50) = "Les Chasses de Maximilien"
-    Arreglo(0, 51) = "Christ in Glory in the Tetramorph"
-    Arreglo(0, 52) = "Cloth of St Gereon"
-    Arreglo(0, 53) = "The Death of Polydorus"
-    Arreglo(0, 54) = "Devonshire Hunting Tapestries"
-    Arreglo(0, 55) = "Franses Tapestry"
-    Arreglo(0, 56) = "Game of Thrones Tapestry"
-    Arreglo(0, 57) = "Gobelins Manufactory"
-    Arreglo(0, 58) = "Great Tapestry of Scotland"
-    Arreglo(0, 59) = "Grödinge tapestry"
-    Arreglo(0, 60) = "Gunthertuch tapestry"
-    Arreglo(0, 61) = "Hestia Tapestry"
-    Arreglo(0, 62) = "The History of Constantine"
-    Arreglo(0, 63) = "The Hunt of the Unicorn"
-    Arreglo(0, 64) = "Hunting of Birds with a Hawk and a Bow"
-    Arreglo(0, 65) = "Jagiellonian tapestries"
-    Arreglo(0, 66) = "K'o-ssu Tapestry"
-    Arreglo(0, 67) = "Kalaga Tapestry"
-    Arreglo(0, 68) = "Kilim Tapestry"
-    Arreglo(0, 69) = "The Lady and the Unicorn Tapestry"
-    Arreglo(0, 70) = "Millefleur Tapestry"
-    Arreglo(0, 71) = "Moravská gobelínová manufaktura Tapestry"
-    Arreglo(0, 72) = "Mortlake Tapestry Works"
-    Arreglo(0, 73) = "Navajo weaving Tapestry"
-    Arreglo(0, 74) = "New World Tapestry"
-    Arreglo(0, 75) = "Oseberg tapestry fragments"
-    Arreglo(0, 76) = "Överhogdal tapestries"
-    Arreglo(0, 77) = "The Pastoral Amusements Tapestry"
-    Arreglo(0, 78) = "Pastrana Tapestries Tapestry"
-    Arreglo(0, 79) = "Prestonpans Tapestry"
-    Arreglo(0, 80) = "Quaker Tapestry"
-    Arreglo(0, 81) = "Raphael Cartoons Tapestry"
-    Arreglo(0, 82) = "Ros Tapestry Project"
-    Arreglo(0, 83) = "Royal Tapestry Factory"
-    Arreglo(0, 84) = "Ryijy Tapestry"
-    Arreglo(0, 85) = "Sampul tapestry"
-    Arreglo(0, 86) = "Scottish Diaspora Tapestry"
-    Arreglo(0, 87) = "Scottish Royal tapestry collection"
-    Arreglo(0, 88) = "Sheldon tapestries"
-    Arreglo(0, 89) = "Siparium Tapestry"
-    Arreglo(0, 90) = "Skog tapestry"
-    Arreglo(0, 91) = "The Triumph of Fame"
-    Arreglo(0, 92) = "Valois Tapestries"
-    Arreglo(0, 93) = "Walsall Silver Thread Tapestries"
-    Arreglo(0, 94) = "William Baumgarten & Co Tapestry"
-    Arreglo(0, 95) = "The World Trade Center Tapestry"
-    Arreglo(0, 96) = "Wool rugs"
-    Arreglo(0, 97) = "Cotton rugs"
-    Arreglo(0, 98) = "Jute and sisal rugs"
-    Arreglo(0, 99) = "Silk and viscose rugs"
-    Arreglo(0, 100) = "Nylon rugs"
-    Arreglo(0, 101) = "Olefin rugs"
-    Arreglo(0, 102) = "Polyester rugs"
-    Arreglo(0, 103) = "Universal Chair cover"
-    Arreglo(0, 104) = "Satin Chair cover"
-    Arreglo(0, 105) = "Polyester Chair cover"
-    Arreglo(0, 106) = "Spandex Chair cover"
-    Arreglo(0, 107) = "Chiavari Chair cover"
-    Arreglo(0, 108) = "The Ottoman Sofa"
-    Arreglo(0, 109) = "The Armchair Sofa"
-    Arreglo(0, 110) = "The Loveseat Sofa"
-    Arreglo(0, 111) = "The Sectional Sofa"
-    Arreglo(0, 112) = "Modular Sofa"
-    Arreglo(0, 113) = "Sofa beds"
-    Arreglo(0, 114) = "Futons Sofa"
-    Arreglo(0, 115) = "Clik-claks Sofa "
-    Arreglo(0, 116) = "Classic Round Arm Sofa"
-    Arreglo(0, 117) = "Retro Square Arm Sofa"
-    Arreglo(0, 118) = "Hard Wedge Arm Sofa"
-    Arreglo(0, 119) = "Rounded Wedge Arm Sofa"
-    Arreglo(0, 120) = "The Sloped Arm Sofa"
-    Arreglo(0, 121) = "Belgian Roll Arm Sofa"
-    Arreglo(0, 122) = "English Roll Arm Sofa"
-    Arreglo(0, 123) = "No Arms Sofa"
-    Arreglo(0, 124) = "Wooden Arms Sofa"
-    Arreglo(0, 125) = "Straight Back Sofa"
-    Arreglo(0, 126) = "Tuxedo Sofas"
-    Arreglo(0, 127) = "High Back Sofa"
-    Arreglo(0, 128) = "Round Back Sofa"
-    Arreglo(0, 129) = "Camelback Sofa"
-    Arreglo(0, 130) = "Wingback Sofa"
-    Arreglo(0, 131) = "Barrelback Sofa"
-    Arreglo(0, 132) = "Rollback Sofa"
-    Arreglo(0, 133) = "Round bean bag"
-    Arreglo(0, 134) = "Square bean bag"
-    Arreglo(0, 135) = "Game chairs bean bag"
-    Arreglo(0, 136) = "Novelty bean bag"
-    Arreglo(0, 137) = "Elongated large bean bag"
-    Arreglo(0, 138) = "Kids/Youth Bean Bags"
-    Arreglo(0, 139) = "Large/Teen Bean Bags"
-    Arreglo(0, 140) = "Extra Large Bean Bags"
-    Arreglo(0, 141) = "Double Extra Large Bean Bags"
-    Arreglo(0, 142) = "Polystyrene beads"
-    Arreglo(0, 143) = "Shredded foam filler"
-    Arreglo(0, 144) = "Nylon Carpets"
-    Arreglo(0, 145) = "Olefin Carpets"
-    Arreglo(0, 146) = "Polyester Carpets"
-    Arreglo(0, 147) = "Acrylic Carpets"
-    Arreglo(0, 148) = "Wool Carpets"
-    Arreglo(0, 149) = "Triexta Carpets"
-    Arreglo(0, 150) = "Microfiber Doormat"
-    Arreglo(0, 151) = "Coir Mats Doormat"
-    Arreglo(0, 152) = "Rubber Doormat"
-    Arreglo(0, 153) = "Cast Iron Doormat"
-    Arreglo(0, 154) = "Snow Doormat"
-    Arreglo(0, 155) = "Ice-Melting  Doormat"
-    Arreglo(0, 156) = "Weather Resistant Doormat"
-    Arreglo(0, 157) = "Eco-Friendly Doormat"
-    
-    
-    Set Myrange = Range("A2:B159")
-    i = 0
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
 
-    j = 0
+    path = "\data\furnishings.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
 
-    For Each Cell In Myrange
+    Set Myrange = Range("A1:B159")
 
-        If j Mod 2 = 0 Then
+    i=0
 
-            Cell.Value = i + 1
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
 
-            i = i + 1
-            j = j + 1
-        Else
-
-            Cell.Value = Arreglo(0, i - 1)
-
-            j = j + 1
-        End If
-
-    Next Cell
-    
     '/////////////////PRICES/////////////////
     
     Set Myrange = Range("C2:C159")
@@ -1399,11 +1130,7 @@ Sub Macro17_Fill_Furnishings()
     
     '/////////////////PRICES/////////////////
 
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Furnishings"
-    Range("B1").Font.Bold = True
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -1413,63 +1140,81 @@ Sub Macro17_Fill_Furnishings()
 
 
 End Sub
-Sub Macro18_Fill_Labels()
+Sub Macro17_Fill_Labels()
 
     Sheets("Labels").Select
 
     Dim Myrange As Range
-    Dim Cell As Range
+    ' Dim Cell As Range
     Dim i As Double
-    Dim j As Double
+    ' Dim j As Double
 
-    Dim Arreglo(0, 23) As String
 
-    Arreglo(0, 0) = "Products Labels"
-    Arreglo(0, 1) = "Packaging Labels"
-    Arreglo(0, 2) = "Assets Labels"
-    Arreglo(0, 3) = "Textiles Labels"
-    Arreglo(0, 4) = "Mailing Labels"
-    Arreglo(0, 5) = "Notebook Labels"
-    Arreglo(0, 6) = "Piggyback Labels"
-    Arreglo(0, 7) = "Smart Labels"
-    Arreglo(0, 8) = "Blockout Labels"
-    Arreglo(0, 9) = "Radioactive Labels"
-    Arreglo(0, 10) = "Laser / printer labels"
-    Arreglo(0, 11) = "Security Labels"
-    Arreglo(0, 12) = "Antimicrobial Labels"
-    Arreglo(0, 13) = "Fold-out Labels"
-    Arreglo(0, 14) = "Barcode Labels"
-    Arreglo(0, 15) = "Paper Labels"
-    Arreglo(0, 16) = "Nonwoven fabric Labels"
-    Arreglo(0, 17) = "Latex Labels"
-    Arreglo(0, 18) = "Plastics Labels"
-    Arreglo(0, 19) = "Foil Labels"
-    Arreglo(0, 20) = "Thermal Labels"
-    Arreglo(0, 21) = "Thermal transfer Labels"
-    Arreglo(0, 22) = "Thermal transfer ribbon Labels"
-    Arreglo(0, 23) = "Substrate Silk Screen Labels"
+    Dim path As String
+    Dim ArrayFile() As String
+    Dim numberOfLines As Long
+
+    path = "\data\labels.dat"
+    modulo2.ReadFile path, ArrayFile, numberOfLines
+
+    Set Myrange = Range("A1:B25")
+
+    i=0
+
+    for each cell in Myrange
+        cell.value = ArrayFile (i)
+        i=i+1
+    next
+
+
+    ' Dim Arreglo(0, 23) As String
+
+    ' Arreglo(0, 0) = "Products Labels"
+    ' Arreglo(0, 1) = "Packaging Labels"
+    ' Arreglo(0, 2) = "Assets Labels"
+    ' Arreglo(0, 3) = "Textiles Labels"
+    ' Arreglo(0, 4) = "Mailing Labels"
+    ' Arreglo(0, 5) = "Notebook Labels"
+    ' Arreglo(0, 6) = "Piggyback Labels"
+    ' Arreglo(0, 7) = "Smart Labels"
+    ' Arreglo(0, 8) = "Blockout Labels"
+    ' Arreglo(0, 9) = "Radioactive Labels"
+    ' Arreglo(0, 10) = "Laser / printer labels"
+    ' Arreglo(0, 11) = "Security Labels"
+    ' Arreglo(0, 12) = "Antimicrobial Labels"
+    ' Arreglo(0, 13) = "Fold-out Labels"
+    ' Arreglo(0, 14) = "Barcode Labels"
+    ' Arreglo(0, 15) = "Paper Labels"
+    ' Arreglo(0, 16) = "Nonwoven fabric Labels"
+    ' Arreglo(0, 17) = "Latex Labels"
+    ' Arreglo(0, 18) = "Plastics Labels"
+    ' Arreglo(0, 19) = "Foil Labels"
+    ' Arreglo(0, 20) = "Thermal Labels"
+    ' Arreglo(0, 21) = "Thermal transfer Labels"
+    ' Arreglo(0, 22) = "Thermal transfer ribbon Labels"
+    ' Arreglo(0, 23) = "Substrate Silk Screen Labels"
     
-    Set Myrange = Range("A2:B25")
-    i = 0
 
-    j = 0
+    ' i = 0
 
-    For Each Cell In Myrange
+    ' j = 0
 
-        If j Mod 2 = 0 Then
+    ' For Each Cell In Myrange
 
-            Cell.Value = i + 1
+    '     If j Mod 2 = 0 Then
 
-            i = i + 1
-            j = j + 1
-        Else
+    '         Cell.Value = i + 1
 
-            Cell.Value = Arreglo(0, i - 1)
+    '         i = i + 1
+    '         j = j + 1
+    '     Else
 
-            j = j + 1
-        End If
+    '         Cell.Value = Arreglo(0, i - 1)
 
-    Next Cell
+    '         j = j + 1
+    '     End If
+
+    ' Next Cell
     
      '/////////////////PRICES/////////////////
     
@@ -1491,12 +1236,7 @@ Sub Macro18_Fill_Labels()
     
     '/////////////////PRICES/////////////////
     
-
-    Range("A1").Value = "Order"
-    Range("A1").Font.Bold = True
-
-    Range("B1").Value = "Labels"
-    Range("B1").Font.Bold = True
+    Range("A1:C1").Font.Bold = True
 
     Columns("A:B").EntireColumn.AutoFit
     Columns("A:A").HorizontalAlignment = xlCenter
@@ -5270,6 +5010,7 @@ Sub MacroN_All_TEMP()
     Call Macro01_Headers
     Call Macro03_InsertCitiesSheet
     Call Macro04_InsertSheets
+
     Call Macro05_Fill_Categories
     Call Macro06_Fill_Sub_Category
     Call Macro07_Fill_Accesories
@@ -5280,6 +5021,9 @@ Sub MacroN_All_TEMP()
     Call Macro12_Fill_Chairs
     Call Macro13_Fill_Copiers
     Call Macro14_Fill_Envelopes
+    Call Macro15_Fill_Fasteners
+    Call Macro16_Fill_Furnishings
+    Call Macro17_Fill_Labels
 
 end Sub
 
@@ -5301,9 +5045,9 @@ Sub MacroN_All()
     Call Macro12_Fill_Chairs
     Call Macro13_Fill_Copiers
     Call Macro14_Fill_Envelopes
-    Call Macro16_Fill_Fasteners
-    Call Macro17_Fill_Furnishings
-    Call Macro18_Fill_Labels
+    Call Macro15_Fill_Fasteners
+    Call Macro16_Fill_Furnishings
+    Call Macro17_Fill_Labels
     Call Macro19_Fill_Gym_Machines
     Call Macro20_Fill_Papers
     Call Macro21_Fill_Storage
