@@ -1670,31 +1670,7 @@ Sub Macro24_Fill_Names()
         cell.value = ArrayFile (i)
         i=i+1
     next
-    
-    ' Dim Arreglo(0, 1012) As String
-
-
-    ' Set Myrange = Range("A2:B1014")
-    ' i = 0
-    ' j = 0
-    
-    ' For Each Cell In Myrange
-
-    '     If j Mod 2 = 0 Then
-
-    '         Cell.Value = i + 1
-
-    '         i = i + 1
-    '         j = j + 1
-    '     Else
-
-    '         Cell.Value = Arreglo(0, i - 1)
-
-    '         j = j + 1
-    '     End If
-
-    ' Next Cell
-        
+          
     Range("A1:C1").Font.Bold = True
 
     Columns("A:A").EntireColumn.AutoFit
